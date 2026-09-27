@@ -48,19 +48,14 @@
             position: fixed;
             width: 500px;
             height: 500px;
-
             background: #7b1fa2;
             border-radius: 50%;
-
             filter: blur(180px);
             opacity: 0.25;
-
             top: -200px;
             left: -200px;
-
             z-index: -1;
         }
-
 
         /* =========================
            NAVBAR
@@ -70,20 +65,14 @@
             position: fixed;
             top: 0;
             left: 0;
-
             width: 100%;
-
             padding: 18px 8%;
-
             display: flex;
             justify-content: space-between;
             align-items: center;
-
             background: rgba(15, 5, 25, 0.65);
             backdrop-filter: blur(15px);
-
             border-bottom: 1px solid rgba(255,255,255,0.08);
-
             z-index: 1000;
         }
 
@@ -354,6 +343,26 @@
             color: white;
         }
 
+        .member-list {
+            margin-top: 20px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .member-item {
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #e5e7eb;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .member-item:hover {
+            border-color: #a855f7;
+            transform: translateX(5px);
+        }
 
         /* =========================
            PENDIDIKAN
