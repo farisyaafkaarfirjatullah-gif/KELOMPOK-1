@@ -11,12 +11,31 @@
     <style>
       /* Animasi saat isi card berganti */
       .about-card {
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
       }
 
       .about-card.is-switching {
         opacity: 0;
         transform: translateY(20px);
+      }
+
+      /* Efek Transition pada item nama */
+      .member-item {
+        transition:
+          transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+          box-shadow 0.3s ease,
+          background-color 0.3s ease,
+          border-color 0.3s ease;
+        cursor: pointer;
+      }
+
+      /* Animasi Hover pada Card Nama */
+      .member-item:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        border-left: 4px solid #007bff; /* Ganti dengan warna aksen kelompok/tema Anda */
       }
     </style>
   </head>
@@ -170,10 +189,7 @@
         "Rizky Pratama",
       ];
 
-      const mentor = [
-        "Syifa Faujiah Noor Fajrin",
-        "Silfa Fauzani Budiman",
-      ];
+      const mentor = ["Syifa Faujiah Noor Fajrin", "Silfa Fauzani Budiman"];
 
       const card = document.querySelector("#info-card");
       const cardTitle = document.querySelector("#card-title");
@@ -187,7 +203,6 @@
         button.addEventListener("click", () => {
           const tampilanBaru = button.dataset.view;
 
-          // Hentikan animasi sebelumnya jika tombol diklik cepat
           clearTimeout(timerAnimasi);
 
           if (tampilanBaru === tampilanAktif) {
@@ -195,19 +210,16 @@
             return;
           }
 
-          // Card menghilang sebentar
           card.classList.add("is-switching");
 
           timerAnimasi = setTimeout(() => {
             const daftarNama = tampilanBaru === "mentor" ? mentor : anggota;
 
-            // Ganti judul card
             cardTitle.textContent =
               tampilanBaru === "mentor"
                 ? "NAMA MENTOR KELOMPOK:"
                 : "NAMA ANGGOTA KELOMPOK:";
 
-            // Ganti nama-nama di dalam card
             cardContent.replaceChildren();
 
             daftarNama.forEach((nama) => {
@@ -217,7 +229,6 @@
               cardContent.appendChild(item);
             });
 
-            // Sesuaikan warna tombol dengan isi card
             tombolTampilan.forEach((tombol) => {
               const aktif = tombol.dataset.view === tampilanBaru;
 
@@ -227,7 +238,6 @@
 
             tampilanAktif = tampilanBaru;
 
-            // Card muncul kembali
             card.classList.remove("is-switching");
           }, 300);
         });
