@@ -1,177 +1,317 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portofolio | KELOMPOK 1</title>
-    <link rel="icon" href="infinity.ico" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="infinity.ico">
+    <link rel="stylesheet" href="style.css">
 
-    <style>
-      /* Animasi saat isi card berganti */
-      .about-card {
-        transition:
-          opacity 0.3s ease,
-          transform 0.3s ease;
-      }
+  
+</head>
 
-      .about-card.is-switching {
-        opacity: 0;
-        transform: translateY(20px);
-      }
 
-      /* Efek Transition pada item nama */
-      .member-item {
-        transition:
-          transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
-          box-shadow 0.3s ease,
-          background-color 0.3s ease,
-          border-color 0.3s ease;
-        cursor: pointer;
-      }
+<body>
 
-      /* Animasi Hover pada Card Nama */
-      .member-item:hover {
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
-        border-left: 4px solid #007bff; /* Ganti dengan warna aksen kelompok/tema Anda */
-      }
-    </style>
-  </head>
 
-  <body>
-    <!-- NAVBAR -->
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
     <nav>
-      <div class="logo">Kelompok<span>1.</span></div>
 
-      <ul class="nav-menu">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+        <div class="logo">
+            Kelompok<span>1.</span>
+        </div>
+
+
+        <ul class="nav-menu">
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#education">Education</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
     </nav>
 
-    <!-- HOME -->
+
+
+    <!-- =========================
+         HOME
+    ========================== -->
+
     <section class="hero" id="home">
-      <div class="hero-container">
-        <div class="hero-text">
-          <small>HALLO</small>
 
-          <h1>kelompok <span>1.</span></h1>
+        <div class="hero-container">
 
-          <p>yang beranggotakan:</p>
 
-          <div class="hero-buttons">
-            <a href="#about" class="btn btn-primary" data-view="anggota">
-              ANGGOTA KELOMPOK
-            </a>
+            <div class="hero-text">
 
-            <a href="#about" class="btn btn-outline" data-view="mentor">
-              MENTOR KELOMPOK
-            </a>
-          </div>
+                <small>HALLO</small>
+
+                <h1>
+                    kelompok 
+                    <span>1.</span>
+                </h1>
+
+                <p>
+                    yang beranngotakan:
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a
+                        href="#about"
+                        class="btn btn-primary"
+                    >
+                        ANGGOTA KELOMPOK
+                    </a>
+
+
+                    <a
+                        href="#about"
+                        class="btn btn-outline"
+                    >
+                        MENTOR KELOMPOK
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="hero-image">
+
+                <div class="photo-container">
+
+                    <img
+                        src="kelompok 1.jpeg"
+                        alt="Foto Nadif Fahrial"
+                    >
+
+                </div>
+
+            </div>
+
+
         </div>
 
-        <div class="hero-image">
-          <div class="photo-container">
-            <img src="kelompok 1.jpeg" alt="Foto Kelompok 1" />
-          </div>
-        </div>
-      </div>
     </section>
 
-    <!-- ABOUT -->
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
     <section id="about">
-      <div class="section-title">
-        <small>INTRODUCTION</small>
-        <h2>About <span>us</span></h2>
-      </div>
 
-      <div class="about-container">
-        <!-- Satu card untuk anggota dan mentor -->
-        <div class="about-card" id="info-card">
-          <p><strong id="card-title">NAMA ANGGOTA KELOMPOK:</strong></p>
 
-          <div class="member-list" id="card-content">
-            <div class="member-item">Annisa Zannati Qalbiah</div>
-            <div class="member-item">Farisya Afkaar Firjatullah</div>
-            <div class="member-item">Kameela Jibrillafy</div>
-            <div class="member-item">Muhammad Syava Argiean</div>
-            <div class="member-item">Rully Indrawanta</div>
-            <div class="member-item">Muhamad Farel</div>
-            <div class="member-item">Muhamad Valda</div>
-            <div class="member-item">Nadif Ahmad Fahrial</div>
-            <div class="member-item">Rafi Akhdan Winata</div>
-            <div class="member-item">Rizki Sudiman Ramadhan</div>
-            <div class="member-item">Rizky Pratama</div>
-          </div>
+
+        <div class="section-title">
+
+            <small>INTRODUCTION</small>
+
+            <h2>
+                About <span>us</span>
+            </h2>
+
         </div>
-      </div>
+
+
+        <div class="about-container">
+<!-- nama kelompok -->
+            <div class="about-card">
+
+                <p>
+                    <strong>NAMA ANGGOTA KELOMPOK:</strong>
+                </p>
+
+                <div class="member-list">
+                    <div class="member-item">Nama: Rizky Pratama (ketua Kelompok)</div>
+                    <div class="member-item">Nama: Nadif Ahmad Farhial</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                </div>
+
+                <div class="member-embed">
+                    <iframe src="list nama.html" title="Daftar nama kelompok"></iframe>
+                </div>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <!-- DOKUMENTASI -->
+
+    <!-- =========================
+         PRESTASI
+    ========================== -->
+
     <section id="achievement">
-      <div class="section-title">
-        <small>Dokumentasi</small>
-        <h2>Dokumentasi <span>Pengalaman</span></h2>
-      </div>
 
-      <div class="achievement-container">
-        <div class="achievement-card">
-          <img src="dokumentasi1.jpeg" alt="Dokumentasi mentoring pertama" />
+        <div class="section-title">
 
-          <div class="DOKUMENTASI">
-            <h3>DOKUMENTASI</h3>
-            <p>Dokumentasi kegiatan Mentoring Ke-1.</p>
-          </div>
+            <small>Dokumentasi</small>
+
+            <h2>
+                Dokumentasi <span>Pengalaman</span>
+            </h2>
+
         </div>
 
-        <div class="achievement-card">
-          <img src="dokumentasi2.jpeg" alt="Dokumentasi mentoring pertama" />
 
-          <div class="DOKUMENTASI">
-            <h3>DOKUMENTASI</h3>
-            <p>Dokumentasi kegiatan Mentoring Ke-1.</p>
-          </div>
+        <div class="achievement-container">
+
+
+            <div class="achievement-card">
+<!-- DOKUMENTASI -->
+                <img
+                    src=""
+                    alt="DOKUMENTASI"
+                >
+
+                <div class="DOKUMENTASI">
+
+                    <h3>DOKUMENTASI</h3>
+<!-- deskripsi kegiatan -->
+                    <p>
+                    dokumentasi kegiatan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="achievement-card">
+<!--DOKUMENTASI -->
+                <img
+                    src=""
+                    alt="DOKUMENTASI"
+                >
+
+                <div class="DOKUMENTASI">
+
+                    <h3>DOKUMENTASI</h3>
+<!-- deskripsi kegiatan -->
+                    <p>
+                        Dokumentasi kegiatan.
+                    </p>
+
+                </div>
+
+            </div>
+
+
         </div>
-      </div>
+
     </section>
 
-    <!-- CONTACT -->
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
     <section id="contact">
-      <div class="section-title">
-        <small>GET IN TOUCH</small>
-        <h2>Contact <span>Us</span></h2>
-      </div>
 
-      <div class="contact-container">
-        <!-- INSTAGRAM -->
-        <div class="contact-card">
-          <img src="wa2.PNG" alt="Instagram" />
-          <h3>Instagram</h3>
+        <div class="section-title">
 
-          <a href="https://www.instagram.com/nadifahriall" target="_blank">
-            Klik Disini
-          </a>
+            <small>GET IN TOUCH</small>
+
+            <h2>
+                Contact <span>Us</span>
+            </h2>
+
         </div>
 
-        <!-- WHATSAPP -->
-        <div class="contact-card">
-          <img src="ig2.PNG" alt="WhatsApp" />
-          <h3>WhatsApp</h3>
+        <div class="contact-container">
 
-          <a href="https://wa.me/6287726996866" target="_blank">
-            Klik Disini
-          </a>
+
+            <!-- INSTAGRAM -->
+
+            <div class="contact-card">
+
+                <img
+                    src="wa2.PNG"
+                    alt="Instagram"
+                >
+
+                <h3>Instagram</h3>
+
+                <a
+                    href="https://www.instagram.com/nadifahriall"
+                    target="_blank"
+                >
+                    Klik Disini
+                </a>
+
+            </div>
+
+
+
+            <!-- WHATSAPP -->
+
+            <div class="contact-card">
+
+                <img
+                    src="ig2.PNG"
+                    alt="WhatsApp"
+                >
+
+                <h3>WhatsApp</h3>
+
+                <a
+                    href="https://wa.me/6287726996866"
+                    target="_blank"
+                >
+                    Klik Disini
+                </a>
+
+            </div>
+
+
         </div>
-      </div>
+
     </section>
 
-    <!-- FOOTER -->
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
-      <p>© 2026 <span>KELOMPOK 1</span>. All Rights Reserved.</p>
+
+        <p>
+            © 2026
+            <span>KELOMPOK 1</span>.
+            All Rights Reserved.
+        </p>
+
     </footer>
 
     <script>
@@ -244,4 +384,6 @@
       });
     </script>
   </body>
+
+</body>
 </html>
