@@ -314,6 +314,76 @@
 
     </footer>
 
+    <script>
+      const anggota = [
+        "Annisa Zannati Qalbiah",
+        "Farisya Afkaar Firjatullah",
+        "Kameela Jibrillafy",
+        "Muhammad Syava Argiean",
+        "Rully Indrawanta",
+        "Muhamad Farel",
+        "Muhamad Valda",
+        "Nadif Ahmad Fahrial",
+        "Rafi Akhdan Winata",
+        "Rizki Sudiman Ramadhan",
+        "Rizky Pratama",
+      ];
+
+      const mentor = ["Syifa Faujiah Noor Fajrin", "Silfa Fauzani Budiman"];
+
+      const card = document.querySelector("#info-card");
+      const cardTitle = document.querySelector("#card-title");
+      const cardContent = document.querySelector("#card-content");
+      const tombolTampilan = document.querySelectorAll("[data-view]");
+
+      let tampilanAktif = "anggota";
+      let timerAnimasi;
+
+      tombolTampilan.forEach((button) => {
+        button.addEventListener("click", () => {
+          const tampilanBaru = button.dataset.view;
+
+          clearTimeout(timerAnimasi);
+
+          if (tampilanBaru === tampilanAktif) {
+            card.classList.remove("is-switching");
+            return;
+          }
+
+          card.classList.add("is-switching");
+
+          timerAnimasi = setTimeout(() => {
+            const daftarNama = tampilanBaru === "mentor" ? mentor : anggota;
+
+            cardTitle.textContent =
+              tampilanBaru === "mentor"
+                ? "NAMA MENTOR KELOMPOK:"
+                : "NAMA ANGGOTA KELOMPOK:";
+
+            cardContent.replaceChildren();
+
+            daftarNama.forEach((nama) => {
+              const item = document.createElement("div");
+              item.className = "member-item";
+              item.textContent = nama;
+              cardContent.appendChild(item);
+            });
+
+            tombolTampilan.forEach((tombol) => {
+              const aktif = tombol.dataset.view === tampilanBaru;
+
+              tombol.classList.toggle("btn-primary", aktif);
+              tombol.classList.toggle("btn-outline", !aktif);
+            });
+
+            tampilanAktif = tampilanBaru;
+
+            card.classList.remove("is-switching");
+          }, 300);
+        });
+      });
+    </script>
+  </body>
 
 </body>
 </html>
