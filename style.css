@@ -646,3 +646,14 @@ footer span {
   background-color: #ffffff;
   border-left: 4px solid #007bff; /* Sesuaikan warna ini dengan warna tema website Anda */
 }
+
+
+        #Mentor {
+            padding-top: 0px;
+            margin-top: -50px;
+        }
+
+        #anggota {
+            padding-top: 0px;
+            margin-top: 250px;
+        }
