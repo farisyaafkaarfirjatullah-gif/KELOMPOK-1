@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portofolio | KELOMPOK 1</title>
-    <link rel="icon" href="infinity.ico">
+    <link rel="icon" href="img/infinity.ico">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 
   
 </head>
@@ -69,14 +70,14 @@
                 </h1>
 
                 <p>
-                    yang beranngotakan:
+                    yang beranggotakan:
                 </p>
 
 
                 <div class="hero-buttons">
 
                     <a
-                        href="#about"
+                        href="#anggota"
                         class="btn btn-primary"
                     >
                         ANGGOTA KELOMPOK
@@ -84,7 +85,7 @@
 
 
                     <a
-                        href="#about"
+                        href="#Mentor"
                         class="btn btn-outline"
                     >
                         MENTOR KELOMPOK
@@ -101,7 +102,7 @@
                 <div class="photo-container">
 
                     <img
-                        src="kelompok 1.jpeg"
+                        src="img/kelompok 1.jpeg"
                         alt="Foto Nadif Fahrial"
                     >
 
@@ -135,62 +136,64 @@
         </div>
 
 
-        <!--Mentor -->
+        <!--mntor-->
+<section id="Mentor">
 
- <section id="Mentor">
+    <div class="section-title">
+        <h2>
+            Mentor <span>Kelompok</span>
+        </h2>
+    </div>
 
-        <div class="section-title">
+    <div class="mentor-container">
 
-           
-            <h2>
-                Mentor <span>Kelompok</span>
-            </h2>
+    
+        <div class="mentor-card">
+            <img
+                src="img/logo.jpg"
+                alt="Teh Sifa"
+                width="150"
+                height="150"
+                loading="lazy"
+            >
+
+            <div class="info-mentor">
+                <h3>Nama: Silfa Fauzani Budiman</h3>
+                <p>Mentor 1</p>
+            </div>
         </div>
 
-        <div class="mentor-container">
+    
+        <div class="mentor-card">
+            <img
+                src="img/logo.jpg"
+                alt="Nama Mentor 2"
+                width="150"
+                height="150"
+                loading="lazy"
+            >
 
-            <div class="mentor-card">
-
-                <img
-                    <img src="https://i.ibb.co.com/N6Yc33L0/787935328-18094145963132361-1621484239145338847-n.jpg" alt="787935328_18094145963132361_1621484239145338847_n" width="150" height="150" loading="lazy" style="max-width:100%;height:auto;"
-                >
-
-                <div class="mentor-info">
-
-                    <h3>nama: teh sifa</h3>
-
-                    <p>
-                        mentor 1
-                    </p>
-
-                </div>
-
+            <div class="info-mentor">
+                <h3>Nama: Syifa Faujiah Noor Fajrin</h3>
+                <p>Mentor 2</p>
             </div>
+        </div>
+
+    </div>
+
+</section>
 
 
-<!-- nama kelompok -->
+<!--anggota--->>
 
             <div id="anggota"> </div>
-            <div class="about-card">
+           <div class="about-card">
+   
+            <p><strong>NAMA ANGGOTA KELOMPOK:</strong></p>
+            <div class="anggota-grid" id="anggota-grid"></div>
+</div>
 
-                <p>
-                    <strong>NAMA ANGGOTA KELOMPOK:</strong>
-                </p>
-
-                <div class="member-list">
-                    <div class="member-item">Nama: Rizky Pratama (ketua Kelompok)</div>
-                    <div class="member-item">Nama: Nadif Ahmad Farhial</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                </div>
-
-                <div class="member-embed">
-                    <iframe src="list nama.html" title="Daftar nama kelompok"></iframe>
-                </div>
+            
 
             </div>
 
@@ -243,16 +246,16 @@
             <div class="achievement-card">
 <!--DOKUMENTASI -->
                 <img
-                    src=""
+                    src="dokumentasi/mentoring 2.jpeg"
                     alt="DOKUMENTASI"
                 >
 
                 <div class="DOKUMENTASI">
 
-                    <h3>DOKUMENTASI</h3>
+                    <h3>Mentoring</h3>
 <!-- deskripsi kegiatan -->
                     <p>
-                        Dokumentasi kegiatan.
+                        Dokumentasi Kegiatan.
                     </p>
 
                 </div>
@@ -290,7 +293,7 @@
             <div class="contact-card">
 
                 <img
-                    src="wa2.PNG"
+                    src="img/wa2.PNG"
                     alt="Instagram"
                 >
 
@@ -312,7 +315,7 @@
             <div class="contact-card">
 
                 <img
-                    src="ig2.PNG"
+                    src="img/ig2.PNG"
                     alt="WhatsApp"
                 >
 
@@ -348,75 +351,6 @@
 
     </footer>
 
-    <script>
-      const anggota = [
-        "Annisa Zannati Qalbiah",
-        "Farisya Afkaar Firjatullah",
-        "Kameela Jibrillafy",
-        "Muhammad Syava Argiean",
-        "Rully Indrawanta",
-        "Muhamad Farel",
-        "Muhamad Valda",
-        "Nadif Ahmad Fahrial",
-        "Rafi Akhdan Winata",
-        "Rizki Sudiman Ramdhan",
-        "Rizky Pratama",
-      ];
-
-      const mentor = ["Syifa Faujiah Noor Fajrin", "Silfa Fauzani Budiman"];
-
-      const card = document.querySelector("#info-card");
-      const cardTitle = document.querySelector("#card-title");
-      const cardContent = document.querySelector("#card-content");
-      const tombolTampilan = document.querySelectorAll("[data-view]");
-
-      let tampilanAktif = "anggota";
-      let timerAnimasi;
-
-      tombolTampilan.forEach((button) => {
-        button.addEventListener("click", () => {
-          const tampilanBaru = button.dataset.view;
-
-          clearTimeout(timerAnimasi);
-
-          if (tampilanBaru === tampilanAktif) {
-            card.classList.remove("is-switching");
-            return;
-          }
-
-          card.classList.add("is-switching");
-
-          timerAnimasi = setTimeout(() => {
-            const daftarNama = tampilanBaru === "mentor" ? mentor : anggota;
-
-            cardTitle.textContent =
-              tampilanBaru === "mentor"
-                ? "NAMA MENTOR KELOMPOK:"
-                : "NAMA ANGGOTA KELOMPOK:";
-
-            cardContent.replaceChildren();
-
-            daftarNama.forEach((nama) => {
-              const item = document.createElement("div");
-              item.className = "member-item";
-              item.textContent = nama;
-              cardContent.appendChild(item);
-            });
-
-            tombolTampilan.forEach((tombol) => {
-              const aktif = tombol.dataset.view === tampilanBaru;
-
-              tombol.classList.toggle("btn-primary", aktif);
-              tombol.classList.toggle("btn-outline", !aktif);
-            });
-
-            tampilanAktif = tampilanBaru;
-
-            card.classList.remove("is-switching");
-          }, 300);
-        });
-      });
-    </script>
   </body>
 
 </body>

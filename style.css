@@ -301,13 +301,13 @@ section {
   color: white;
 }
 
-.member-list {
+.anggota-list {
   margin-top: 20px;
   display: grid;
   gap: 12px;
 }
 
-.member-item {
+.anggota-item {
   padding: 14px 18px;
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.04);
@@ -317,7 +317,7 @@ section {
   transition: 0.3s ease;
 }
 
-.member-item:hover {
+.anggota-item:hover {
   border-color: #a855f7;
   transform: translateX(5px);
 }
@@ -626,7 +626,7 @@ footer span {
   }
 }
 /* Styling & Animasi Hover untuk Card Nama */
-.member-item {
+.anggota-item {
   transition:
     transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
     box-shadow 0.3s ease,
@@ -635,11 +635,11 @@ footer span {
   cursor: pointer;
 }
 
-.member-item:hover {
+.anggota-item:hover {
   /* Mengangkat card sedikit ke atas dan memperbesar skala */
   transform: translateY(-5px) scale(1.02);
 
-  /* Memberikan efek bayangan menyala */
+  /* anggotaikan efek bayangan menyala */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 
   /* Opsional: Efek warna background/border saat disorot */
@@ -648,12 +648,223 @@ footer span {
 }
 
 
-        #Mentor {
-            padding-top: 0px;
-            margin-top: -50px;
-        }
+#Mentor {
+padding-top: 0px;
+margin-top: -50px;
+}
 
-        #anggota {
-            padding-top: 0px;
-            margin-top: 250px;
-        }
+        
+.mentor-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;        /* tetap satu baris */
+  gap: 35px;
+  /* pastikan transform: translateX(50px) sudah dihapus */
+}
+
+.mentor-card {
+  width: 250px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.mentor-card img {
+  display: block;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto 12px;
+}
+
+@media (max-width: 480px) {
+  .mentor-container {
+    gap: 14px;
+    padding: 0 4px;
+  }
+
+  .mentor-card {
+    flex: 1 1 0;       
+    min-width: 0;      
+    width: auto;
+  }
+
+  .mentor-card img {
+    width: 100%;
+    max-width: 130px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .mentor-card h3 {
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .mentor-card p {
+    font-size: 12px;
+  }
+}
+
+#anggota {
+padding-top: 0px;
+margin-top: -20px;
+}
+
+/*poto */
+
+.anggota-grid {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 22px;
+}
+
+.flip-card {
+  aspect-ratio: 3 / 4;      /* ganti 1 / 1 kalau mau kotak persis */
+  perspective: 1000px;
+  cursor: pointer;
+  outline: none;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  display: block;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 16px;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+.flip-card:hover .flip-front,
+.flip-card:hover .flip-back,
+.flip-card:focus-visible .flip-front,
+.flip-card:focus-visible .flip-back {
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
+}
+
+
+.flip-front img,
+.flip-back img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  border: none;
+  border-radius: 0;
+}
+
+
+.flip-front::after,
+.flip-back::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 55%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+.flip-front h4,
+.flip-back h4 {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 28px;
+  z-index: 2;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.3;
+  text-align: left;
+}
+
+.flip-back .label {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  color: #fff;
+  background: rgba(124, 58, 237, 0.85);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.flip-back p {
+  position: absolute;
+  left: 12px;
+  bottom: 8px;
+  z-index: 2;
+  color: #ddd;
+  font-size: 14px;
+}
+
+.flip-hint {
+  position: absolute;
+  left: 12px;
+  bottom: 10px;
+  z-index: 2;
+  color: #ccc;
+  font-size: 11px;
+}
+
+
+
+
+/*scrol*/
+.reveal {
+  opacity: 0;
+}
+
+.reveal.visible {
+  opacity: 1;
+  animation: slideUp 0.3s cubic-bezier(0.22, 0.61, 0.36, 1) backwards;
+  animation-delay: var(--d, 0s);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+  }
+  .reveal.visible {
+    animation: none;
+  }
+}
