@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Portofolio | KELOMPOK 1</title>
-    <link rel="icon" href="img/infinity.ico">
+    <link rel="icon" href="infinity.ico">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 
-  
+
 </head>
 
 
@@ -70,14 +70,14 @@
                 </h1>
 
                 <p>
-                    yang beranggotakan:
+                    yang beranngotakan:
                 </p>
 
 
                 <div class="hero-buttons">
 
                     <a
-                        href="#anggota"
+                        href="#about"
                         class="btn btn-primary"
                     >
                         ANGGOTA KELOMPOK
@@ -85,12 +85,39 @@
 
 
                     <a
-                        href="#Mentor"
+                        href="#about"
                         class="btn btn-outline"
                     >
                         MENTOR KELOMPOK
                     </a>
 
+                </div>
+
+                <div class="music-player" aria-label="Pemutar reff lagu kelompok">
+                    <div class="music-player-heading">
+                        <span class="music-icon" aria-hidden="true">♪</span>
+                        <div>
+                            <small>REFF LOOP</small>
+                            <p>Everything U Are</p>
+                        </div>
+                    </div>
+                    <audio id="music-audio" preload="metadata" data-start="30" data-end="88">
+                        <source src="Hindia_-_everything_u_are_(mp3.pm).mp3" type="audio/mpeg">
+                        Browser Anda tidak mendukung pemutar audio.
+                    </audio>
+                    <div class="music-controls">
+                        <button class="music-play" id="music-play" type="button" aria-label="Putar reff" aria-pressed="false">
+                            <span aria-hidden="true">▶</span>
+                        </button>
+                        <div class="music-progress-wrap">
+                            <input id="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Posisi lagu">
+                            <div class="music-time">
+                                <span id="music-current">01:18</span>
+                                <span id="music-duration">01:52</span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="music-note">Memutar bagian reff secara berulang</p>
                 </div>
 
             </div>
@@ -102,7 +129,7 @@
                 <div class="photo-container">
 
                     <img
-                        src="img/kelompok 1.jpeg"
+                        src="kelompok 1.jpeg"
                         alt="Foto Nadif Fahrial"
                     >
 
@@ -117,7 +144,7 @@
 
 
 
-   <!-- =========================
+    <!-- =========================
          ABOUT
     ========================== -->
 
@@ -136,64 +163,66 @@
         </div>
 
 
-        <!--mntor-->
-<section id="Mentor">
+        <div class="about-container">
+<!-- nama kelompok -->
+            <div class="about-card">
 
-    <div class="section-title">
-        <h2>
-            Mentor <span>Kelompok</span>
-        </h2>
-    </div>
+                <p>
+                    <strong>NAMA ANGGOTA KELOMPOK:</strong>
+                </p>
 
-    <div class="mentor-container">
+                <div class="member-search">
+                    <label for="member-search">Cari anggota kelompok</label>
+                    <input
+                        id="member-search"
+                        type="search"
+                        placeholder="Ketik nama anggota..."
+                        autocomplete="off"
+                        aria-controls="member-list"
+                    >
+                    <p id="member-search-status" aria-live="polite">
+                        Ketik nama untuk menyaring daftar anggota.
+                    </p>
+                </div>
 
-    
-        <div class="mentor-card">
-            <img
-                src="img/logo.jpg"
-                alt="Teh Sifa"
-                width="150"
-                height="150"
-                loading="lazy"
-            >
+                <div class="member-list" id="member-list">
+                    <div class="member-item">Mentor:Syifa </div>
+                    <div class="member-item">Mentor:Silfa </div>
+                    <div class="member-item">Nama: Rizky Pratama (ketua Kelompok)</div>
+                    <div class="member-item">Nama: Nadif Ahmad Farhial</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                </div>
 
-            <div class="info-mentor">
-                <h3>Nama: Silfa Fauzani Budiman</h3>
-                <p>Mentor 1</p>
-            </div>
-        </div>
+                <div class="mission-box" aria-labelledby="mission-title">
+                    <div class="mission-heading">
+                        <div>
+                            <small>MISI TIM</small>
+                            <h3 id="mission-title">Tantangan 60 Detik</h3>
+                        </div>
+                        <span class="mission-timer" id="mission-timer" aria-live="polite">01:00</span>
+                    </div>
+                    <p class="mission-prompt" id="mission-prompt" aria-live="polite">
+                        Siap menguji kekompakan? Ambil satu misi dan kerjakan bersama.
+                    </p>
+                    <div class="mission-track" aria-hidden="true">
+                        <span class="mission-progress" id="mission-progress"></span>
+                    </div>
+                    <button class="mission-button" id="mission-button" type="button">
+                        Mulai misi acak
+                    </button>
+                    <p class="mission-status" id="mission-status" aria-live="polite">
+                        Misi baru dipilih secara acak setiap kali dimulai.
+                    </p>
+                </div>
 
-    
-        <div class="mentor-card">
-            <img
-                src="img/logo.jpg"
-                alt="Nama Mentor 2"
-                width="150"
-                height="150"
-                loading="lazy"
-            >
-
-            <div class="info-mentor">
-                <h3>Nama: Syifa Faujiah Noor Fajrin</h3>
-                <p>Mentor 2</p>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!--anggota--->>
-
-            <div id="anggota"> </div>
-           <div class="about-card">
-   
-            <p><strong>NAMA ANGGOTA KELOMPOK:</strong></p>
-            <div class="anggota-grid" id="anggota-grid"></div>
-</div>
-
-            
+                <div class="member-embed">
+                    <iframe src="list nama.html" title="Daftar nama kelompok"></iframe>
+                </div>
 
             </div>
 
@@ -246,16 +275,16 @@
             <div class="achievement-card">
 <!--DOKUMENTASI -->
                 <img
-                    src="dokumentasi/mentoring 2.jpeg"
+                    src=""
                     alt="DOKUMENTASI"
                 >
 
                 <div class="DOKUMENTASI">
 
-                    <h3>Mentoring</h3>
+                    <h3>DOKUMENTASI</h3>
 <!-- deskripsi kegiatan -->
                     <p>
-                        Dokumentasi Kegiatan.
+                        Dokumentasi kegiatan.
                     </p>
 
                 </div>
@@ -293,7 +322,7 @@
             <div class="contact-card">
 
                 <img
-                    src="img/wa2.PNG"
+                    src="wa2.PNG"
                     alt="Instagram"
                 >
 
@@ -315,7 +344,7 @@
             <div class="contact-card">
 
                 <img
-                    src="img/ig2.PNG"
+                    src="ig2.PNG"
                     alt="WhatsApp"
                 >
 
@@ -351,7 +380,6 @@
 
     </footer>
 
-  </body>
 
 </body>
 </html>
