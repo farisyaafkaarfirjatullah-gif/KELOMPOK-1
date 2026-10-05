@@ -47,6 +47,10 @@
             </li>
 
             <li>
+                <a href="#achievement">Dokumentasi</a>
+            </li>
+
+            <li>
                 <a href="#contact">Contact</a>
             </li>
 
@@ -104,33 +108,6 @@
                         LIHAT DOKUMENTASI
                     </a>
 
-                </div>
-
-                <div class="music-player" aria-label="Pemutar reff lagu kelompok">
-                    <div class="music-player-heading">
-                        <span class="music-icon" aria-hidden="true">♪</span>
-                        <div>
-                            <small>REFF LOOP</small>
-                            <p>Everything U Are</p>
-                        </div>
-                    </div>
-                    <audio id="music-audio" preload="metadata" data-start="30" data-end="88">
-                        <source src="Hindia_-_everything_u_are_(mp3.pm).mp3" type="audio/mpeg">
-                        Browser Anda tidak mendukung pemutar audio.
-                    </audio>
-                    <div class="music-controls">
-                        <button class="music-play" id="music-play" type="button" aria-label="Putar reff" aria-pressed="false">
-                            <span aria-hidden="true">▶</span>
-                        </button>
-                        <div class="music-progress-wrap">
-                            <input id="music-progress" type="range" min="0" max="100" value="0" step="0.1" aria-label="Posisi lagu">
-                            <div class="music-time">
-                                <span id="music-current">01:18</span>
-                                <span id="music-duration">01:52</span>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="music-note">Memutar bagian reff secara berulang</p>
                 </div>
 
             </div>
@@ -211,11 +188,13 @@
                     <div class="member-item">Nama: Rizky Pratama (ketua Kelompok)</div>
                     <div class="member-item">Nama: Nadif Ahmad Farhial</div>
                     <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
-                    <div class="member-item">Nama: Muhammad Farrel Ihsanuddin Gunawan</div>
+                    <div class="member-item">Nama: ----------------------------------</div>
+                    <div class="member-item">Nama: ----------------------------------</div>
+                    <div class="member-item">Nama: ----------------------------------</div>
+                    <div class="member-item">Nama: ----------------------------------</div>
+                    <div class="member-item">Nama: ----------------------------------</div>
+                    <div class="member-item">Nama: ----------------------------------</div>
+                    
                 </div>
 
                 <div class="mission-box" aria-labelledby="mission-title">
@@ -257,6 +236,7 @@
 
     <section id="achievement">
 
+        <!-- DOKUMENTASI -->
         <div class="section-title">
 
             <small>Dokumentasi</small>
@@ -268,50 +248,58 @@
         </div>
 
 
-        <div class="achievement-container">
+        <div class="documentation-slider" id="documentation-slider" tabindex="0" aria-label="Slider dokumentasi pertemuan">
+            <div class="documentation-slides">
+                <article class="documentation-slide" data-slide aria-hidden="false">
+                    <div class="documentation-photo-frame">
+                        <img class="meeting-photo" src="FOTO_PERTEMUAN_01.jpg" alt="Kegiatan Kelompok 1 pada Pertemuan 01">
+                        <div class="photo-placeholder" aria-hidden="true">
+                            <span class="placeholder-kicker">PERTEMUAN / 01</span>
+                            <div class="placeholder-message">
+                                <span>ARSIP KELOMPOK 1</span>
+                                <strong>Foto belum<br>ditambahkan</strong>
+                            </div>
+                            <span class="placeholder-note">GANTI NAMA FILE FOTO DI ATRIBUT SRC</span>
+                        </div>
+                    </div>
+                    <div class="meeting-details">
+                        <small>DOKUMENTASI / 01</small>
+                        <h3>Pertemuan 01</h3>
+                        <p>Foto kegiatan pertemuan pertama akan ditampilkan di sini.</p>
+                    </div>
+                </article>
 
-
-            <div class="achievement-card">
-<!-- DOKUMENTASI -->
-                <img
-                    src=""
-                    alt="DOKUMENTASI"
-                >
-
-                <div class="DOKUMENTASI">
-
-                    <h3>DOKUMENTASI</h3>
-<!-- deskripsi kegiatan -->
-                    <p>
-                    dokumentasi kegiatan.
-                    </p>
-
-                </div>
-
+                <article class="documentation-slide" data-slide aria-hidden="true" hidden>
+                    <div class="documentation-photo-frame">
+                        <img class="meeting-photo" src="FOTO_PERTEMUAN_02.jpg" alt="Kegiatan Kelompok 1 pada Pertemuan 02">
+                        <div class="photo-placeholder" aria-hidden="true">
+                            <span class="placeholder-kicker">PERTEMUAN / 02</span>
+                            <div class="placeholder-message">
+                                <span>ARSIP KELOMPOK 1</span>
+                                <strong>Foto belum<br>ditambahkan</strong>
+                            </div>
+                            <span class="placeholder-note">GANTI NAMA FILE FOTO DI ATRIBUT SRC</span>
+                        </div>
+                    </div>
+                    <div class="meeting-details">
+                        <small>DOKUMENTASI / 02</small>
+                        <h3>Pertemuan 02</h3>
+                        <p>Foto kegiatan pertemuan kedua akan ditampilkan di sini.</p>
+                    </div>
+                </article>
             </div>
 
-
-
-            <div class="achievement-card">
-<!--DOKUMENTASI -->
-                <img
-                    src=""
-                    alt="DOKUMENTASI"
-                >
-
-                <div class="DOKUMENTASI">
-
-                    <h3>DOKUMENTASI</h3>
-<!-- deskripsi kegiatan -->
-                    <p>
-                        Dokumentasi kegiatan.
-                    </p>
-
+            <div class="documentation-controls">
+                <span class="documentation-counter" aria-live="polite"><span id="documentation-current">01</span> <span id="documentation-total">/ 02</span></span>
+                <div class="documentation-dots" aria-label="Pilih pertemuan">
+                    <button class="documentation-dot is-active" type="button" data-slide-index="0" aria-label="Tampilkan Pertemuan 01" aria-current="true"></button>
+                    <button class="documentation-dot" type="button" data-slide-index="1" aria-label="Tampilkan Pertemuan 02" aria-current="false"></button>
                 </div>
-
+                <div class="documentation-arrows">
+                    <button class="documentation-arrow" id="documentation-previous" type="button" aria-label="Pertemuan sebelumnya" title="Pertemuan sebelumnya">←</button>
+                    <button class="documentation-arrow" id="documentation-next" type="button" aria-label="Pertemuan berikutnya" title="Pertemuan berikutnya">→</button>
+                </div>
             </div>
-
-
         </div>
 
     </section>
@@ -334,52 +322,16 @@
 
         </div>
 
-        <div class="contact-container">
-
-
-            <!-- INSTAGRAM -->
-
-            <div class="contact-card">
-
-                <img
-                    src="wa2.PNG"
-                    alt="Instagram"
-                >
-
-                <h3>Instagram</h3>
-
-                <a
-                    href="https://www.instagram.com/nadifahriall"
-                    target="_blank"
-                >
-                    Klik Disini
-                </a>
-
+        <div class="instagram-directory contact-card">
+            <img class="instagram-directory-icon" src="wa2.PNG" alt="" aria-hidden="true">
+            <div class="instagram-directory-heading">
+                <div>
+                    <small>INSTAGRAM / KELOMPOK 1</small>
+                    <h3>Instagram Anggota Kelompok</h3>
+                </div>
+                <span class="instagram-account-count" id="instagram-account-count" aria-live="polite">0 / 11 akun aktif</span>
             </div>
-
-
-
-            <!-- WHATSAPP -->
-
-            <div class="contact-card">
-
-                <img
-                    src="ig2.PNG"
-                    alt="WhatsApp"
-                >
-
-                <h3>WhatsApp</h3>
-
-                <a
-                    href="https://wa.me/6287726996866"
-                    target="_blank"
-                >
-                    Klik Disini
-                </a>
-
-            </div>
-
-
+            <div class="instagram-grid" id="instagram-profiles" aria-label="Profil Instagram anggota kelompok"></div>
         </div>
 
     </section>

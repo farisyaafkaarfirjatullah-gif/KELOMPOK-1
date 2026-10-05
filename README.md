@@ -8,8 +8,8 @@ Situs portofolio sederhana untuk memperkenalkan anggota kelompok, menampilkan do
 - `list nama.html`: daftar kartu anggota yang ditampilkan di halaman utama.
 - `style.css`: tampilan dan tata letak.
 - `script.js`: interaksi pencarian, misi, pemutar musik, pemilihan anggota, dan tema.
-- `data.json`: data pendamping kelompok, audio, dan misi.
-- File gambar, ikon, serta musik berada di folder utama yang sama.
+- `data.json`: data pendamping kelompok dan misi.
+- File gambar dan ikon berada di folder utama yang sama.
 
 Proyek ini berupa website statis dan belum memiliki backend atau API.
 
@@ -17,9 +17,20 @@ Proyek ini berupa website statis dan belum memiliki backend atau API.
 
 - **Pencarian anggota** menyaring daftar nama saat teks diketik.
 - **Tantangan misi** memilih instruksi secara acak dan menjalankan hitung mundur selama 60 detik.
-- **Pemutar musik** memutar dan mengulang bagian lagu sesuai waktu mulai dan akhir yang diatur pada elemen audio di `index.html`.
 - **Kartu anggota** ditampilkan sebagai daftar informatif tanpa fungsi pemilihan.
 - **Animasi kartu** menampilkan kartu saat masuk ke area pandang.
+- **Dokumentasi pertemuan** menampilkan foto dalam slider dengan tombol, indikator, dan keyboard.
+- **Instagram kelompok** menampilkan 11 profil. Nama, peran, dan username diatur pada array `instagramProfiles` di `script.js`; isi `username` tanpa `@`. Profil tanpa username tidak membuat tautan palsu.
+
+## Mengganti Foto Dokumentasi
+
+Simpan foto di folder utama, lalu ubah nilai `src` pada gambar pertemuan terkait di `index.html`:
+
+```html
+<img class="meeting-photo" src="FOTO_PERTEMUAN_01.jpg" alt="Kegiatan Kelompok 1 pada Pertemuan 01">
+```
+
+Untuk pertemuan baru, duplikasikan elemen `<article class="documentation-slide" data-slide>` dan tambahkan satu tombol indikator dengan `data-slide-index` berikutnya.
 
 ## Menjalankan
 

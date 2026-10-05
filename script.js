@@ -68,6 +68,123 @@ if (window.parent !== window) {
     });
 }
 
+document.querySelectorAll(".meeting-photo").forEach((photo) => {
+    const placeholder = photo.nextElementSibling;
+
+    const showPhoto = () => {
+        photo.classList.add("is-loaded");
+        if (placeholder) {
+            placeholder.hidden = true;
+        }
+    };
+
+    const showPlaceholder = () => {
+        photo.classList.remove("is-loaded");
+        if (placeholder) {
+            placeholder.hidden = false;
+        }
+    };
+
+    photo.addEventListener("load", showPhoto);
+    photo.addEventListener("error", showPlaceholder);
+
+    if (photo.complete) {
+        if (photo.naturalWidth > 0) {
+            showPhoto();
+        } else {
+            showPlaceholder();
+        }
+    }
+});
+
+const instagramProfiles = [
+    { name: "Nadif Ahmad Farhial", role: "Anggota", username: "nadifahriall" },
+    { name: "Rizky Pratama", role: "Ketua Kelompok", username: "" },
+    { name: "Muhammad Farrel Ihsanuddin Gunawan", role: "Anggota", username: "" },
+    { name: "Syifa", role: "Mentor", username: "" },
+    { name: "Silfa", role: "Mentor", username: "" },
+    { name: "Anggota 06", role: "Anggota", username: "" },
+    { name: "Anggota 07", role: "Anggota", username: "" },
+    { name: "Anggota 08", role: "Anggota", username: "" },
+    { name: "Anggota 09", role: "Anggota", username: "" },
+    { name: "Anggota 10", role: "Anggota", username: "" },
+    { name: "Anggota 11", role: "Anggota", username: "" }
+];
+
+const instagramProfilesContainer = document.querySelector("#instagram-profiles");
+const instagramAccountCount = document.querySelector("#instagram-account-count");
+
+function createInstagramProfileCard(profile) {
+    const card = document.createElement("article");
+    card.className = "instagram-profile-row";
+
+    const initials = profile.name
+        .split(/\s+/)
+        .slice(0, 2)
+        .map((part) => part[0])
+        .join("")
+        .toLocaleUpperCase("id");
+    const avatar = document.createElement("span");
+    avatar.className = "instagram-avatar";
+    avatar.setAttribute("aria-hidden", "true");
+    avatar.textContent = initials;
+
+    const details = document.createElement("div");
+    details.className = "instagram-profile-details";
+
+    const name = document.createElement("h3");
+    name.className = "instagram-profile-name";
+    name.textContent = profile.name;
+
+    const role = document.createElement("span");
+    role.className = "instagram-profile-role";
+    role.textContent = profile.role;
+
+    details.append(name, role);
+    card.append(avatar, details);
+
+    const username = profile.username.trim().replace(/^@/, "");
+    if (/^[a-zA-Z0-9._]+$/.test(username)) {
+        const usernameLabel = document.createElement("span");
+        usernameLabel.className = "instagram-profile-username";
+        usernameLabel.textContent = `@${username}`;
+        details.append(usernameLabel);
+
+        const link = document.createElement("a");
+        link.className = "instagram-profile-link";
+        link.href = `https://www.instagram.com/${encodeURIComponent(username)}/`;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Klik Disini";
+        link.setAttribute("aria-label", `Buka Instagram ${profile.name}`);
+        card.append(link);
+    } else {
+        const pending = document.createElement("span");
+        pending.className = "instagram-profile-pending";
+        pending.textContent = "Username belum diisi";
+        details.append(pending);
+
+        const unavailableLink = document.createElement("button");
+        unavailableLink.className = "instagram-profile-link";
+        unavailableLink.type = "button";
+        unavailableLink.disabled = true;
+        unavailableLink.title = "Isi username Instagram untuk mengaktifkan tautan";
+        unavailableLink.textContent = "Klik Disini";
+        card.append(unavailableLink);
+    }
+
+    return card;
+}
+
+if (instagramProfilesContainer) {
+    instagramProfilesContainer.replaceChildren(...instagramProfiles.map(createInstagramProfileCard));
+}
+
+if (instagramAccountCount) {
+    const activeInstagramCount = instagramProfiles.filter((profile) => profile.username.trim()).length;
+    instagramAccountCount.textContent = `${activeInstagramCount} / ${instagramProfiles.length} akun aktif`;
+}
+
 const missionButton = document.querySelector("#mission-button");
 const missionPrompt = document.querySelector("#mission-prompt");
 const missionTimer = document.querySelector("#mission-timer");
@@ -133,68 +250,6 @@ if (missionButton) {
     missionButton.addEventListener("click", startMission);
 }
 
-const musicAudio = document.querySelector("#music-audio");
-const musicPlay = document.querySelector("#music-play");
-const musicProgress = document.querySelector("#music-progress");
-const musicCurrent = document.querySelector("#music-current");
-const musicDuration = document.querySelector("#music-duration");
-
-function formatAudioTime(seconds) {
-    const safeSeconds = Math.max(0, Math.floor(seconds));
-    return `${Math.floor(safeSeconds / 60).toString().padStart(2, "0")}:${(safeSeconds % 60).toString().padStart(2, "0")}`;
-}
-
-if (musicAudio && musicPlay && musicProgress) {
-    const chorusStart = Number(musicAudio.dataset.start);
-    const chorusEnd = Number(musicAudio.dataset.end);
-
-    musicAudio.addEventListener("loadedmetadata", () => {
-        musicAudio.currentTime = chorusStart;
-        musicCurrent.textContent = formatAudioTime(chorusStart);
-        musicDuration.textContent = formatAudioTime(chorusEnd);
-    });
-
-    musicPlay.addEventListener("click", async () => {
-        if (musicAudio.paused) {
-            if (musicAudio.currentTime < chorusStart || musicAudio.currentTime >= chorusEnd) {
-                musicAudio.currentTime = chorusStart;
-            }
-            await musicAudio.play();
-        } else {
-            musicAudio.pause();
-        }
-    });
-
-    musicAudio.addEventListener("timeupdate", () => {
-        if (musicAudio.currentTime >= chorusEnd) {
-            musicAudio.currentTime = chorusStart;
-            if (!musicAudio.paused) {
-                musicAudio.play();
-            }
-        }
-
-        const chorusProgress = ((musicAudio.currentTime - chorusStart) / (chorusEnd - chorusStart)) * 100;
-        musicProgress.value = Math.max(0, Math.min(100, chorusProgress));
-        musicCurrent.textContent = formatAudioTime(musicAudio.currentTime);
-    });
-
-    musicAudio.addEventListener("play", () => {
-        musicPlay.innerHTML = '<span aria-hidden="true">Ⅱ</span>';
-        musicPlay.setAttribute("aria-label", "Jeda lagu");
-        musicPlay.setAttribute("aria-pressed", "true");
-    });
-
-    musicAudio.addEventListener("pause", () => {
-        musicPlay.innerHTML = '<span aria-hidden="true">▶</span>';
-        musicPlay.setAttribute("aria-label", "Putar reff");
-        musicPlay.setAttribute("aria-pressed", "false");
-    });
-
-    musicProgress.addEventListener("input", () => {
-        musicAudio.currentTime = chorusStart + ((chorusEnd - chorusStart) * Number(musicProgress.value)) / 100;
-    });
-}
-
 const memberSearch = document.querySelector("#member-search");
 const memberSearchStatus = document.querySelector("#member-search-status");
 const memberItems = document.querySelectorAll(".member-item");
@@ -231,5 +286,68 @@ if ("IntersectionObserver" in window) {
     memberImages.forEach((image) => observer.observe(image));
 } else {
     memberImages.forEach((image) => image.classList.add("show"));
+}
+
+const documentationSlider = document.querySelector("#documentation-slider");
+
+if (documentationSlider) {
+    const documentationSlides = Array.from(documentationSlider.querySelectorAll("[data-slide]"));
+    const documentationDots = Array.from(documentationSlider.querySelectorAll("[data-slide-index]"));
+    const documentationCurrent = document.querySelector("#documentation-current");
+    const documentationTotal = document.querySelector("#documentation-total");
+    let activeDocumentationIndex = 0;
+
+    function showDocumentationSlide(index) {
+        if (documentationSlides.length === 0) {
+            return;
+        }
+
+        activeDocumentationIndex = (index + documentationSlides.length) % documentationSlides.length;
+        documentationSlides.forEach((slide, slideIndex) => {
+            const isActive = slideIndex === activeDocumentationIndex;
+            slide.hidden = !isActive;
+            slide.setAttribute("aria-hidden", String(!isActive));
+        });
+
+        documentationDots.forEach((dot, dotIndex) => {
+            const isActive = dotIndex === activeDocumentationIndex;
+            dot.classList.toggle("is-active", isActive);
+            dot.setAttribute("aria-current", String(isActive));
+        });
+
+        if (documentationCurrent) {
+            documentationCurrent.textContent = String(activeDocumentationIndex + 1).padStart(2, "0");
+        }
+        if (documentationTotal) {
+            documentationTotal.textContent = `/ ${String(documentationSlides.length).padStart(2, "0")}`;
+        }
+    }
+
+    documentationSlider.querySelector("#documentation-previous")?.addEventListener("click", () => {
+        showDocumentationSlide(activeDocumentationIndex - 1);
+    });
+    documentationSlider.querySelector("#documentation-next")?.addEventListener("click", () => {
+        showDocumentationSlide(activeDocumentationIndex + 1);
+    });
+
+    documentationDots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+            showDocumentationSlide(Number(dot.dataset.slideIndex));
+        });
+    });
+
+    documentationSlider.addEventListener("keydown", (event) => {
+        if (event.target.closest("button")) {
+            return;
+        }
+
+        if (event.key === "ArrowLeft") {
+            showDocumentationSlide(activeDocumentationIndex - 1);
+        } else if (event.key === "ArrowRight") {
+            showDocumentationSlide(activeDocumentationIndex + 1);
+        }
+    });
+
+    showDocumentationSlide(activeDocumentationIndex);
 }
 
