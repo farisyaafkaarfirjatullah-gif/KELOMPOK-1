@@ -441,6 +441,98 @@
             color: white;
         }
 
+        .member-search {
+            max-width: 620px;
+            margin-top: 22px;
+        }
+
+        .member-search label {
+            display: block;
+            margin-bottom: 9px;
+            color: #f3f4f6;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .member-search-control {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 54px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 12px;
+            background: linear-gradient(110deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
+            transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .member-search-control:focus-within {
+            border-color: #c084fc;
+            background-color: rgba(30, 18, 43, 0.9);
+            box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.14);
+        }
+
+        .member-search-icon {
+            position: absolute;
+            left: 17px;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #c084fc;
+            border-radius: 50%;
+            transform: translateY(-60%);
+            pointer-events: none;
+        }
+
+        .member-search-icon::after {
+            position: absolute;
+            right: -5px;
+            bottom: -3px;
+            width: 6px;
+            height: 2px;
+            border-radius: 2px;
+            background: #c084fc;
+            content: "";
+            transform: rotate(45deg);
+        }
+
+        #member-search {
+            width: 100%;
+            min-height: 52px;
+            padding: 12px 16px 12px 48px;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #fff;
+            font: inherit;
+            font-size: 15px;
+            color-scheme: dark;
+        }
+
+        #member-search::placeholder {
+            color: #9ca3af;
+            opacity: 1;
+        }
+
+        #member-search-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 22px;
+            margin-top: 8px;
+            color: #a1a1aa;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        #member-search-status::before {
+            flex: 0 0 6px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #c084fc;
+            content: "";
+        }
+
         .member-list {
             margin-top: 20px;
             display: grid;

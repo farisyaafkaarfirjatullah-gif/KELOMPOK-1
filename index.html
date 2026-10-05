@@ -172,14 +172,19 @@
                 </p>
 
                 <div class="member-search">
-                    <label for="member-search">Cari anggota kelompok</label>
-                    <input
-                        id="member-search"
-                        type="search"
-                        placeholder="Ketik nama anggota..."
-                        autocomplete="off"
-                        aria-controls="member-list"
-                    >
+                    <label for="member-search">Cari nama anggota</label>
+                    <div class="member-search-control">
+                        <span class="member-search-icon" aria-hidden="true"></span>
+                        <input
+                            id="member-search"
+                            type="search"
+                            placeholder="Nama anggota atau mentor..."
+                            autocomplete="off"
+                            enterkeyhint="search"
+                            aria-controls="member-list"
+                            aria-describedby="member-search-status"
+                        >
+                    </div>
                     <p id="member-search-status" aria-live="polite">
                         Ketik nama untuk menyaring daftar anggota.
                     </p>
