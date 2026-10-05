@@ -1,0 +1,38 @@
+{
+  "group": {
+    "name": "KELOMPOK 1",
+    "mentors": [
+      "Syifa",
+      "Silfa"
+    ],
+    "members": [
+      {
+        "name": "Rizky Pratama",
+        "role": "Ketua Kelompok"
+      },
+      {
+        "name": "Nadif Ahmad Farhial",
+        "role": "Anggota"
+      },
+      {
+        "name": "Muhammad Farrel Ihsanuddin Gunawan",
+        "role": "Anggota"
+      }
+    ]
+  },
+  "audio": {
+    "title": "Everything U Are",
+    "artist": "Hindia",
+    "file": "Hindia_-_everything_u_are_(mp3.pm).mp3",
+    "startSeconds": 30,
+    "endSeconds": 88
+  },
+  "missions": [
+    "Buat slogan kelompok dalam satu kalimat. Setiap anggota harus menyumbang satu kata.",
+    "Pilih satu tujuan bersama, lalu sebutkan satu langkah kecil untuk mencapainya.",
+    "Temukan tiga kesamaan yang dimiliki semua anggota kelompok.",
+    "Buat ide kegiatan kelompok yang bisa dilakukan tanpa biaya.",
+    "Secara bergiliran, sebutkan satu kekuatan yang membuat kelompok kalian kompak.",
+    "Rancang nama dan konsep untuk proyek kelompok berikutnya."
+  ]
+}
