@@ -1,3 +1,73 @@
+const themeToggle = document.querySelector("#theme-toggle");
+const themeToggleIcon = document.querySelector("#theme-toggle-icon");
+const themeToggleLabel = document.querySelector("#theme-toggle-label");
+const memberFrame = document.querySelector(".member-embed iframe");
+const themeStorageKey = "kelompok1-theme";
+
+function syncEmbeddedTheme(theme) {
+    if (!memberFrame) {
+        return;
+    }
+
+    try {
+        memberFrame.contentWindow.postMessage({ type: "theme-change", theme }, "*");
+        const embeddedDocument = memberFrame.contentDocument;
+        if (embeddedDocument && embeddedDocument.documentElement) {
+            embeddedDocument.documentElement.dataset.theme = theme;
+        }
+    } catch {
+    }
+}
+
+function applyTheme(theme, persist = false) {
+    const activeTheme = theme === "light" ? "light" : "dark";
+    document.documentElement.dataset.theme = activeTheme;
+    syncEmbeddedTheme(activeTheme);
+
+    if (themeToggle && themeToggleIcon && themeToggleLabel) {
+        const nextTheme = activeTheme === "dark" ? "Light Mode" : "Dark Mode";
+        themeToggleIcon.textContent = activeTheme === "dark" ? "☼" : "☾";
+        themeToggleLabel.textContent = nextTheme;
+        themeToggle.setAttribute("aria-label", `Switch to ${nextTheme.toLowerCase()}`);
+        themeToggle.title = `Switch to ${nextTheme.toLowerCase()}`;
+    }
+
+    if (persist) {
+        try {
+            window.localStorage.setItem(themeStorageKey, activeTheme);
+        } catch {
+        }
+    }
+}
+
+const initialTheme = document.documentElement.dataset.theme || "dark";
+applyTheme(initialTheme);
+
+if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+        const nextTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+        applyTheme(nextTheme, true);
+    });
+}
+
+if (memberFrame) {
+    memberFrame.addEventListener("load", () => {
+        syncEmbeddedTheme(document.documentElement.dataset.theme || "dark");
+    });
+}
+
+if (window.parent !== window) {
+    window.addEventListener("message", (event) => {
+        if (event.source !== window.parent || !event.data || event.data.type !== "theme-change") {
+            return;
+        }
+
+        if (event.data.theme === "light" || event.data.theme === "dark") {
+            applyTheme(event.data.theme);
+        }
+    });
+}
+
 const missionButton = document.querySelector("#mission-button");
 const missionPrompt = document.querySelector("#mission-prompt");
 const missionTimer = document.querySelector("#mission-timer");
