@@ -33,7 +33,7 @@
                     rgba(10, 3, 20, 0.82),
                     rgba(10, 3, 20, 0.95)
                 ),
-                url("bg3.webp");
+                url("../bg3.webp");
 
             background-size: cover;
             background-position: center;
@@ -1064,7 +1064,7 @@
         html[data-theme="light"] body::before {
             background:
                 linear-gradient(rgba(250, 248, 252, 0.91), rgba(246, 242, 248, 0.97)),
-                url("bg3.webp");
+                url("../bg3.webp");
         }
 
         html[data-theme="light"] body::after {

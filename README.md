@@ -4,11 +4,11 @@ Situs portofolio sederhana untuk memperkenalkan anggota kelompok, menampilkan do
 
 ## Isi Proyek
 
-- `index.html`: halaman utama dengan bagian Home, About, Dokumentasi, dan Contact.
-- `style.css`: tampilan, tata letak, dan penyesuaian halaman untuk berbagai ukuran layar.
-- `script.js`: fungsi pencarian anggota, tantangan misi 60 detik, pemutar bagian reff lagu, animasi kartu, serta pemilihan kartu anggota.
-- `list nama.html`: halaman daftar kartu anggota yang ditampilkan di dalam halaman utama.
-- `data.json`: data kelompok dalam format JSON, termasuk anggota, mentor, pengaturan lagu, dan contoh misi.
+- `frontend/`: aplikasi web statis, termasuk halaman HTML, CSS, dan JavaScript.
+- Root proyek: aset media seperti foto, musik, latar belakang, dan ikon yang dipakai frontend.
+- `backend/`: tempat untuk backend jika API atau layanan server ditambahkan. Saat ini proyek belum memiliki backend.
+- `docs/`: data pendamping proyek, termasuk `data.json`.
+- `README.md`: panduan proyek dan cara menjalankan situs.
 
 ## Fungsi Interaktif
 
@@ -20,6 +20,6 @@ Situs portofolio sederhana untuk memperkenalkan anggota kelompok, menampilkan do
 
 ## Menjalankan
 
-Buka `index.html` di browser. Pastikan file gambar, audio, `style.css`, `script.js`, dan `list nama.html` tetap berada pada lokasi yang sesuai dengan path di HTML.
+Buka `frontend/index.html` di browser. File halaman memakai path relatif untuk mengakses media di root proyek.
 
-`data.json` adalah data terstruktur pendamping dan belum dibaca otomatis oleh halaman. Untuk saat ini, konten yang tampil masih ditulis langsung di HTML dan beberapa fungsi masih memiliki data di `script.js`.
+`docs/data.json` adalah data terstruktur pendamping dan belum dibaca otomatis oleh halaman. Untuk saat ini, konten yang tampil masih ditulis langsung di HTML dan beberapa fungsi masih memiliki data di `frontend/script.js`.
