@@ -18,7 +18,7 @@ Proyek ini berupa website statis dan belum memiliki backend atau API.
 - **Pencarian anggota** menyaring daftar nama saat teks diketik.
 - **Tantangan misi** memilih instruksi secara acak dan menjalankan hitung mundur selama 60 detik.
 - **Pemutar musik** memutar dan mengulang bagian lagu sesuai waktu mulai dan akhir yang diatur pada elemen audio di `index.html`.
-- **Kartu anggota** dapat dipilih dengan klik, Enter, atau Spasi. Jumlah pilihan diperbarui dan tombol tersedia untuk mengosongkannya.
+- **Kartu anggota** ditampilkan sebagai daftar informatif tanpa fungsi pemilihan.
 - **Animasi kartu** menampilkan kartu saat masuk ke area pandang.
 
 ## Menjalankan

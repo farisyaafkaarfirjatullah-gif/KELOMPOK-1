@@ -36,39 +36,6 @@
         padding: 12px;
         border: 1px solid transparent;
         border-radius: 12px;
-        cursor: pointer;
-        transition: background-color 0.2s ease, border-color 0.2s ease;
-    }
-    .container:focus-visible{
-        outline: 3px solid #c084fc;
-        outline-offset: 3px;
-    }
-    .container.selected{
-        border-color: #c084fc;
-        background: rgba(124, 58, 237, 0.2);
-    }
-    .selection-toolbar{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        margin: 8px 20px 28px;
-        padding: 16px;
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 10px;
-        color: #e5e7eb;
-    }
-    .selection-toolbar button{
-        padding: 10px 14px;
-        border: 0;
-        border-radius: 8px;
-        background: #7c3aed;
-        color: white;
-        font: inherit;
-        cursor: pointer;
-    }
-    .selection-toolbar button:hover{
-        background: #9333ea;
     }
     .container:nth-child(even){
         flex-direction: row-reverse;
@@ -107,14 +74,6 @@
     html[data-theme="light"] .container h1{
         color: #302a38;
     }
-    html[data-theme="light"] .container.selected{
-        border-color: #7139a2;
-        background: rgba(113, 57, 162, 0.12);
-    }
-    html[data-theme="light"] .selection-toolbar{
-        border-color: rgba(66, 45, 80, 0.16);
-        color: #3e3547;
-    }
     @media (max-width: 600px) {
 
     body{
@@ -123,11 +82,6 @@
     .container{
         gap: 12px;
         margin: 30px 0;
-    }
-    .selection-toolbar{
-        align-items: flex-start;
-        flex-direction: column;
-        margin: 8px 0 24px;
     }
     .kiri {
         max-width: 180px;
@@ -144,13 +98,6 @@
 <script src="script.js" defer></script>
 </head>
 <body>
-<div class="selection-toolbar">
-    <p id="selection-status" aria-live="polite">Belum ada kartu anggota yang dipilih.</p>
-    <div>
-        <strong id="selected-count">0</strong> kartu dipilih
-        <button id="clear-selection" type="button">Kosongkan pilihan</button>
-    </div>
-</div>
 <div class="container">
     <img src="./Gua.png" class="kiri">
     <div>

@@ -216,10 +216,6 @@ if (memberSearch && memberSearchStatus) {
     });
 }
 
-const memberCards = document.querySelectorAll(".container");
-const selectedCount = document.querySelector("#selected-count");
-const selectionStatus = document.querySelector("#selection-status");
-const clearSelectionButton = document.querySelector("#clear-selection");
 const memberImages = document.querySelectorAll(".kiri");
 
 if ("IntersectionObserver" in window) {
@@ -237,39 +233,3 @@ if ("IntersectionObserver" in window) {
     memberImages.forEach((image) => image.classList.add("show"));
 }
 
-function updateSelection() {
-    const totalSelected = document.querySelectorAll(".container.selected").length;
-    selectedCount.textContent = totalSelected;
-    selectionStatus.textContent = totalSelected === 0
-        ? "Belum ada kartu anggota yang dipilih."
-        : `${totalSelected} kartu anggota dipilih untuk tim diskusi.`;
-}
-
-function toggleMemberCard(card) {
-    const isSelected = card.classList.toggle("selected");
-    card.setAttribute("aria-checked", String(isSelected));
-    updateSelection();
-}
-
-memberCards.forEach((card) => {
-    card.setAttribute("role", "checkbox");
-    card.setAttribute("aria-checked", "false");
-    card.setAttribute("tabindex", "0");
-    card.addEventListener("click", () => toggleMemberCard(card));
-    card.addEventListener("keydown", (event) => {
-        if (event.key === " " || event.key === "Enter") {
-            event.preventDefault();
-            toggleMemberCard(card);
-        }
-    });
-});
-
-if (clearSelectionButton) {
-    clearSelectionButton.addEventListener("click", () => {
-        memberCards.forEach((card) => {
-            card.classList.remove("selected");
-            card.setAttribute("aria-checked", "false");
-        });
-        updateSelection();
-    });
-}
