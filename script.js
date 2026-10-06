@@ -98,17 +98,19 @@ document.querySelectorAll(".meeting-photo").forEach((photo) => {
 });
 
 const instagramProfiles = [
+    { name: "Syifa Faujiyah Noor Fajrin", role: "Mentor", username: "syifflow" },
+    { name: "Silfa Fauzani Budiman", role: "Mentor", username: "Silfafb_" },
+    { name: "Rizky Pratama", role: "Ketua Kelompok", username: "rizkyprattama" },
+    { name: "Annisa Zannati Qalbiah", role: "Anggota", username: "annizaqq" },
+    { name: "Farisya Afkaar Firjatullah", role: "Anggota", username: "farisyaafkaar_" },
+    { name: "Kameela jibrilafly", role: "Anggota", username: "ameljiblle" },
+    { name: "M. Valda Valensi Sabala", role: "Anggota", username: "vldaasblaa_" },
+    { name: "Muhammad Farrel Ihsanuddin Gunawan", role: "Anggota", username: "farrelihsanuddin" },
+    { name: "Muhammad Syava A", role: "Anggota", username: "sapskrttt" },
     { name: "Nadif Ahmad Farhial", role: "Anggota", username: "nadifahriall" },
-    { name: "Rizky Pratama", role: "Ketua Kelompok", username: "" },
-    { name: "Muhammad Farrel Ihsanuddin Gunawan", role: "Anggota", username: "" },
-    { name: "Syifa", role: "Mentor", username: "" },
-    { name: "Silfa", role: "Mentor", username: "" },
-    { name: "Anggota 06", role: "Anggota", username: "" },
-    { name: "Anggota 07", role: "Anggota", username: "" },
-    { name: "Anggota 08", role: "Anggota", username: "" },
-    { name: "Anggota 09", role: "Anggota", username: "" },
-    { name: "Anggota 10", role: "Anggota", username: "" },
-    { name: "Anggota 11", role: "Anggota", username: "" }
+    { name: "Rafi akhdan winata", role: "Anggota", username: "akhdan.rf" },
+    { name: "Rizki Sudiman Ramadhan", role: "Anggota", username: "rzkisr_" },
+    { name: "Rully Indrawanta", role: "Anggota", username: "rllyndrwnt" }
 ];
 
 const instagramProfilesContainer = document.querySelector("#instagram-profiles");
@@ -185,70 +187,6 @@ if (instagramAccountCount) {
     instagramAccountCount.textContent = `${activeInstagramCount} / ${instagramProfiles.length} akun aktif`;
 }
 
-const missionButton = document.querySelector("#mission-button");
-const missionPrompt = document.querySelector("#mission-prompt");
-const missionTimer = document.querySelector("#mission-timer");
-const missionProgress = document.querySelector("#mission-progress");
-const missionStatus = document.querySelector("#mission-status");
-
-const missions = [
-    "Buat slogan kelompok dalam satu kalimat. Setiap anggota harus menyumbang satu kata.",
-    "Pilih satu tujuan bersama, lalu sebutkan satu langkah kecil untuk mencapainya.",
-    "Temukan tiga kesamaan yang dimiliki semua anggota kelompok.",
-    "Buat ide kegiatan kelompok yang bisa dilakukan tanpa biaya.",
-    "Secara bergiliran, sebutkan satu kekuatan yang membuat kelompok kalian kompak.",
-    "Rancang nama dan konsep untuk proyek kelompok berikutnya."
-];
-
-const missionDuration = 60;
-let remainingSeconds = missionDuration;
-let previousMissionIndex = -1;
-let countdownId;
-
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60).toString().padStart(2, "0");
-    const remainder = (seconds % 60).toString().padStart(2, "0");
-    return `${minutes}:${remainder}`;
-}
-
-function chooseMission() {
-    let nextIndex = Math.floor(Math.random() * missions.length);
-
-    while (missions.length > 1 && nextIndex === previousMissionIndex) {
-        nextIndex = Math.floor(Math.random() * missions.length);
-    }
-
-    previousMissionIndex = nextIndex;
-    return missions[nextIndex];
-}
-
-function startMission() {
-    window.clearInterval(countdownId);
-    remainingSeconds = missionDuration;
-    missionPrompt.textContent = chooseMission();
-    missionTimer.textContent = formatTime(remainingSeconds);
-    missionProgress.style.width = "100%";
-    missionStatus.textContent = "Misi dimulai. Kerjakan bersama sebelum waktunya habis!";
-    missionButton.disabled = true;
-    missionButton.textContent = "Misi sedang berjalan...";
-
-    countdownId = window.setInterval(() => {
-        remainingSeconds -= 1;
-        missionTimer.textContent = formatTime(remainingSeconds);
-        missionProgress.style.width = `${(remainingSeconds / missionDuration) * 100}%`;
-
-        if (remainingSeconds === 0) {
-            window.clearInterval(countdownId);
-            missionStatus.textContent = "Waktu habis! Bagaimana hasil misi kalian?";
-            missionButton.disabled = false;
-            missionButton.textContent = "Ambil misi berikutnya";
-        }
-    }, 1000);
-}
-
-if (missionButton) {
-    missionButton.addEventListener("click", startMission);
-}
 
 const memberSearch = document.querySelector("#member-search");
 const memberSearchStatus = document.querySelector("#member-search-status");
@@ -351,3 +289,64 @@ if (documentationSlider) {
     showDocumentationSlide(activeDocumentationIndex);
 }
 
+const modal = document.getElementById('member-modal');
+const modalClose = document.getElementById('modal-close');
+
+if (modal) {
+  document.querySelectorAll('.member-item').forEach(item => {
+    if (!item.dataset.nama) return;
+
+    item.addEventListener('click', () => {
+      const modalFoto = document.getElementById('modal-foto');
+      const modalNama = document.getElementById('modal-nama');
+      const modalNpm = document.getElementById('modal-npm');
+      const modalHobi = document.getElementById('modal-hobi');
+
+      if (modalFoto) modalFoto.src = item.dataset.foto;
+      if (modalNama) modalNama.textContent = item.dataset.nama;
+      if (modalNpm) modalNpm.textContent = item.dataset.npm;
+      if (modalHobi) modalHobi.textContent = item.dataset.hobi;
+      modal.classList.add('active');
+    });
+  });
+
+  if (modalClose) {
+    modalClose.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+  }
+
+  modal.addEventListener('click', e => {
+    if (e.target === modal) modal.classList.remove('active');
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') modal.classList.remove('active');
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const list = document.getElementById('member-list');
+  if (!list) return;
+
+  // isi detail dari data-*
+  list.querySelectorAll('.member-item[data-nama]').forEach(item => {
+    item.querySelector('img').src = item.dataset.foto;
+    item.querySelector('h3').textContent = item.dataset.nama;
+    item.querySelector('.npm').textContent = item.dataset.npm;
+    item.querySelector('.hobi').textContent = item.dataset.hobi;
+  });
+
+  // klik buka/tutup
+  list.addEventListener('click', e => {
+    const head = e.target.closest('.member-head');
+    if (!head) return;
+
+    const item = head.closest('.member-item');
+    if (!item.dataset.nama) return;
+
+    list.querySelectorAll('.member-item.open').forEach(o => {
+      if (o !== item) o.classList.remove('open');
+    });
+    item.classList.toggle('open');
+  });
+});
