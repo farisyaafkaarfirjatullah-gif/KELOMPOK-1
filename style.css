@@ -649,6 +649,413 @@ section {
 }
 
 /* =========================
+        .about-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+
+        .about-card {
+            padding: 35px;
+
+            background: rgba(255,255,255,0.05);
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            border-radius: 25px;
+
+            backdrop-filter: blur(15px);
+
+            line-height: 1.8;
+
+            color: #bbb;
+
+            transition: 0.3s;
+        }
+
+
+        .about-card:hover {
+            border-color: #7c3aed;
+            transform: translateY(-5px);
+        }
+
+
+        .about-card strong {
+            color: white;
+        }
+
+        .member-search {
+            max-width: 620px;
+            margin-top: 22px;
+        }
+
+        .member-search label {
+            display: block;
+            margin-bottom: 9px;
+            color: #f3f4f6;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .member-search-control {
+            position: relative;
+            display: flex;
+            align-items: center;
+            min-height: 54px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 12px;
+            background: linear-gradient(110deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.035));
+            transition: border-color 180ms ease, background-color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .member-search-control:focus-within {
+            border-color: #c084fc;
+            background-color: rgba(30, 18, 43, 0.9);
+            box-shadow: 0 0 0 4px rgba(192, 132, 252, 0.14);
+        }
+
+        .member-search-icon {
+            position: absolute;
+            left: 17px;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            border: 2px solid #c084fc;
+            border-radius: 50%;
+            transform: translateY(-60%);
+            pointer-events: none;
+        }
+
+        .member-search-icon::after {
+            position: absolute;
+            right: -5px;
+            bottom: -3px;
+            width: 6px;
+            height: 2px;
+            border-radius: 2px;
+            background: #c084fc;
+            content: "";
+            transform: rotate(45deg);
+        }
+
+        #member-search {
+            width: 100%;
+            min-height: 52px;
+            padding: 12px 16px 12px 48px;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            color: #fff;
+            font: inherit;
+            font-size: 15px;
+            color-scheme: dark;
+        }
+
+        #member-search::placeholder {
+            color: #9ca3af;
+            opacity: 1;
+        }
+
+        #member-search-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 22px;
+            margin-top: 8px;
+            color: #a1a1aa;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        #member-search-status::before {
+            flex: 0 0 6px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #c084fc;
+            content: "";
+        }
+
+        .member-list {
+            margin-top: 20px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .member-item {
+            padding: 14px 18px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #e5e7eb;
+            font-weight: 500;
+            transition: 0.3s ease;
+        }
+
+        .member-item:hover {
+            border-color: #a855f7;
+            transform: translateX(5px);
+        }
+
+        .mission-box {
+            margin-top: 28px;
+            padding: 24px;
+            border: 1px solid rgba(192,132,252,0.28);
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(124,58,237,0.16), rgba(255,255,255,0.03));
+        }
+
+        .music-player {
+            display: grid;
+            grid-template-columns: 34px minmax(0, 1fr) 36px;
+            align-items: center;
+            gap: 3px 10px;
+            max-width: 560px;
+            width: 52%;
+            margin: 0 0 28px 8%;
+            padding: 8px 10px;
+            border: 1px solid rgba(255,255,255,0.16);
+            border-radius: 16px;
+            background: linear-gradient(110deg, rgba(255,255,255,0.09), rgba(255,255,255,0.035));
+            box-shadow: 0 16px 44px rgba(0,0,0,0.16);
+            backdrop-filter: blur(16px);
+        }
+
+        .music-player-art {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            width: 34px;
+            aspect-ratio: 1;
+            grid-row: 1 / 3;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
+        }
+
+        .music-player-bar {
+            width: 3px;
+            height: 10px;
+            border-radius: 3px;
+            background: #fff;
+        }
+
+        .music-player-bar:nth-child(2) {
+            height: 19px;
+        }
+
+        .music-player-bar:nth-child(3) {
+            height: 14px;
+        }
+
+        .music-player.is-playing .music-player-bar {
+            animation: music-equalize 760ms ease-in-out infinite alternate;
+        }
+
+        .music-player.is-playing .music-player-bar:nth-child(2) {
+            animation-delay: 180ms;
+        }
+
+        .music-player.is-playing .music-player-bar:nth-child(3) {
+            animation-delay: 360ms;
+        }
+
+        @keyframes music-equalize {
+            to {
+                transform: scaleY(0.45);
+            }
+        }
+
+        .music-player-details {
+            min-width: 0;
+        }
+
+        .music-player-details small {
+            color: rgba(255,255,255,0.62);
+            font-size: 8px;
+            font-weight: 700;
+            letter-spacing: 1.7px;
+        }
+
+        .music-player-details h3 {
+            margin-top: 2px;
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.25;
+        }
+
+        .music-player-details p {
+            margin-top: 2px;
+            color: #bdb4c6;
+            font-size: 10px;
+            line-height: 1.3;
+        }
+
+        .music-player-toggle {
+            display: grid;
+            width: 36px;
+            aspect-ratio: 1;
+            grid-column: 3;
+            grid-row: 1 / 3;
+            place-items: center;
+            border: 0;
+            border-radius: 50%;
+            background: #fff;
+            color: #211b2b;
+            cursor: pointer;
+            box-shadow: 0 5px 18px rgba(255,255,255,0.12);
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        .music-player-toggle:hover {
+            transform: scale(1.06);
+            box-shadow: 0 7px 24px rgba(255,255,255,0.2);
+        }
+
+        .music-player-toggle:focus-visible {
+            outline: 3px solid rgba(255,255,255,0.65);
+            outline-offset: 4px;
+        }
+
+        .music-player-toggle span {
+            width: 0;
+            height: 0;
+            margin-left: 3px;
+            border-top: 7px solid transparent;
+            border-bottom: 7px solid transparent;
+            border-left: 10px solid currentColor;
+        }
+
+        .music-player-toggle[aria-pressed="true"] span {
+            width: 11px;
+            height: 14px;
+            margin-left: 0;
+            border: 0;
+            background: linear-gradient(to right, currentColor 0 4px, transparent 4px 7px, currentColor 7px 11px);
+        }
+
+        .music-player-timeline {
+            display: grid;
+            grid-column: 2 / 4;
+            grid-template-columns: 27px minmax(0, 1fr) 27px;
+            align-items: center;
+            gap: 5px;
+            color: #c9c4d0;
+            font-size: 9px;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .music-player-timeline span:last-child {
+            text-align: right;
+        }
+
+        .music-player-timeline input {
+            display: block;
+            width: 100%;
+            min-width: 0;
+            height: 4px;
+            color-scheme: dark;
+            accent-color: #fff;
+            cursor: pointer;
+        }
+
+        .music-player-timeline input:disabled {
+            cursor: not-allowed;
+            opacity: 0.45;
+        }
+
+        .mission-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .mission-heading small {
+            color: #c084fc;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .mission-heading h3 {
+            margin-top: 4px;
+            color: white;
+            font-size: 20px;
+        }
+
+        .mission-timer {
+            color: #f0abfc;
+            font-size: 28px;
+            font-variant-numeric: tabular-nums;
+            font-weight: 700;
+        }
+
+        .mission-prompt {
+            min-height: 54px;
+            margin: 18px 0;
+            color: #e5e7eb;
+            line-height: 1.7;
+        }
+
+        .mission-track {
+            height: 6px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+        }
+
+        .mission-progress {
+            display: block;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background: #c084fc;
+            transition: width 1s linear;
+        }
+
+        .mission-button {
+            margin-top: 18px;
+            padding: 11px 18px;
+            border: 0;
+            border-radius: 8px;
+            background: #7c3aed;
+            color: white;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .mission-button:hover:not(:disabled) {
+            transform: translateY(-2px);
+            background: #9333ea;
+        }
+
+        .mission-button:disabled {
+            cursor: wait;
+            opacity: 0.7;
+        }
+
+        .mission-status {
+            margin-top: 10px;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .member-embed {
+            margin-top: 25px;
+        }
+
+        .member-embed iframe {
+            width: 100%;
+            min-height: 640px;
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 18px;
+            background: #0b0f19;
+        }
+
+        /* =========================
            PENDIDIKAN
         ========================= */
 
@@ -1633,3 +2040,507 @@ html[data-theme="light"] footer {
 .member-detail p {
   margin: 2px 0;
 }
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+
+            .nav-menu {
+                gap: 12px;
+            }
+
+
+            .nav-menu a {
+                font-size: 11px;
+            }
+
+
+            .hero {
+                min-height: auto;
+                padding: 112px 6% 48px;
+            }
+
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 34px;
+                text-align: left;
+            }
+
+
+            .hero-text {
+                margin: 0 auto;
+                width: 100%;
+            }
+
+
+            .hero-buttons {
+                justify-content: flex-start;
+            }
+
+            .hero-image {
+                width: 100%;
+                max-width: 540px;
+                margin: 0 auto;
+            }
+
+
+            .documentation-slides {
+                grid-template-columns: 1fr;
+            }
+
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .instagram-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .music-player {
+                width: 66%;
+                margin-left: 6%;
+                grid-template-columns: 32px minmax(0, 1fr) 36px;
+                gap: 3px 7px;
+                padding: 7px 8px;
+            }
+
+            .music-player-art {
+                width: 32px;
+            }
+
+            .music-player-toggle {
+                width: 38px;
+            }
+
+        }
+
+
+        /* =========================
+           RESPONSIVE HP
+        ========================= */
+
+        @media (max-width: 480px) {
+
+            nav {
+                padding: 15px 4%;
+            }
+
+
+            .logo {
+                font-size: 18px;
+            }
+
+
+            .nav-menu {
+                gap: 8px;
+            }
+
+
+            .nav-menu a {
+                font-size: 9px;
+            }
+
+            .theme-toggle {
+                width: 36px;
+                min-height: 36px;
+                padding: 0;
+            }
+
+            .theme-toggle-label {
+                display: none;
+            }
+
+
+            .hero-text h1 {
+                font-size: 45px;
+                margin-bottom: 12px;
+            }
+
+
+            .hero {
+                padding: 100px 6% 32px;
+            }
+
+            .hero-container {
+                gap: 22px;
+            }
+
+            .hero-kicker {
+                margin-bottom: 12px;
+            }
+
+            .hero-text .hero-intro {
+                font-size: 16px;
+            }
+
+
+            .hero-buttons {
+                flex-direction: row;
+                gap: 8px;
+                margin-top: 18px;
+            }
+
+            .hero-buttons .btn {
+                display: flex;
+                flex: 1;
+                align-items: center;
+                justify-content: center;
+                min-height: 44px;
+                padding: 10px 8px;
+                font-size: 11px;
+                line-height: 1.2;
+            }
+
+
+            .btn {
+                text-align: center;
+            }
+
+            section {
+                padding: 70px 6%;
+            }
+
+            .hero + #about {
+                padding-top: 28px;
+            }
+
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+
+            .instagram-directory-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .instagram-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+
+            .photo-placeholder {
+                padding: 18px;
+            }
+
+            .documentation-photo-frame {
+                min-height: 260px;
+            }
+
+            .meeting-photo {
+                min-height: 260px;
+            }
+
+            .placeholder-message strong {
+                font-size: 32px;
+            }
+
+            .documentation-controls {
+                gap: 10px;
+            }
+
+            .documentation-arrow {
+                width: 38px;
+                height: 38px;
+            }
+
+        }
+
+        html[data-theme="light"] {
+            color-scheme: light;
+        }
+
+        html[data-theme="light"] body {
+            color: #302a38;
+            background: #f6f2f8;
+        }
+
+        html[data-theme="light"] body::before {
+            background:
+                linear-gradient(rgba(250, 248, 252, 0.91), rgba(246, 242, 248, 0.97)),
+                url("bg3.webp");
+        }
+
+        html[data-theme="light"] body::after {
+            opacity: 0.07;
+        }
+
+        html[data-theme="light"] nav {
+            background: rgba(255, 255, 255, 0.88);
+            border-bottom-color: rgba(69, 49, 82, 0.12);
+            box-shadow: 0 8px 24px rgba(45, 31, 55, 0.06);
+        }
+
+        html[data-theme="light"] .logo,
+        html[data-theme="light"] .hero-text h1,
+        html[data-theme="light"] .section-title h2,
+        html[data-theme="light"] .contact-card h3 {
+            color: #30243a;
+        }
+
+        html[data-theme="light"] .instagram-directory-heading h3,
+        html[data-theme="light"] .instagram-profile-name {
+            color: #30243a;
+        }
+
+        html[data-theme="light"] .instagram-directory-heading small,
+        html[data-theme="light"] .instagram-profile-link {
+            color: #fff;
+        }
+
+        html[data-theme="light"] .placeholder-kicker,
+        html[data-theme="light"] .placeholder-message span,
+        html[data-theme="light"] .meeting-details small,
+        html[data-theme="light"] .documentation-counter {
+            color: #526b21;
+        }
+
+        html[data-theme="light"] .instagram-account-count,
+        html[data-theme="light"] .instagram-profile-role,
+        html[data-theme="light"] .instagram-profile-username,
+        html[data-theme="light"] .instagram-profile-pending {
+            color: #665d6e;
+        }
+
+        html[data-theme="light"] .instagram-brand-icon {
+            filter: brightness(0.32) saturate(0.7);
+        }
+
+        html[data-theme="light"] .instagram-profile-row {
+            border-bottom-color: rgba(66, 45, 80, 0.12);
+        }
+
+        html[data-theme="light"] .instagram-profile-row:hover {
+            background: rgba(82, 107, 33, 0.06);
+        }
+
+        html[data-theme="light"] .instagram-profile-link:focus-visible {
+            outline-color: #526b21;
+        }
+
+        html[data-theme="light"] .nav-menu a {
+            color: #51485a;
+        }
+
+        html[data-theme="light"] .nav-menu a:hover,
+        html[data-theme="light"] .logo span,
+        html[data-theme="light"] .hero-text small,
+        html[data-theme="light"] .hero-text h1 span,
+        html[data-theme="light"] .section-title small,
+        html[data-theme="light"] .section-title span,
+        html[data-theme="light"] .mission-heading small,
+        html[data-theme="light"] .education-item h3,
+        html[data-theme="light"] .meeting-details h3 {
+            color: #7139a2;
+        }
+
+        html[data-theme="light"] .documentation-photo-frame {
+            background-color: #35263f;
+        }
+
+        html[data-theme="light"] .documentation-counter {
+            color: #526b21;
+        }
+
+        html[data-theme="light"] .documentation-counter span {
+            color: #756b7d;
+        }
+
+        html[data-theme="light"] .documentation-dot {
+            background: rgba(66, 45, 80, 0.26);
+        }
+
+        html[data-theme="light"] .documentation-dot.is-active {
+            background: #526b21;
+        }
+
+        html[data-theme="light"] .documentation-arrow {
+            border-color: rgba(66, 45, 80, 0.18);
+            background: rgba(255, 255, 255, 0.76);
+            color: #352d3d;
+        }
+
+        html[data-theme="light"] .documentation-arrow:hover {
+            border-color: #526b21;
+            background: rgba(217, 243, 107, 0.25);
+        }
+
+        html[data-theme="light"] .documentation-arrow:focus-visible,
+        html[data-theme="light"] .documentation-dot:focus-visible {
+            outline-color: #526b21;
+        }
+
+        html[data-theme="light"] .hero-text p,
+        html[data-theme="light"] .education-item p,
+        html[data-theme="light"] .meeting-details p,
+        html[data-theme="light"] footer {
+            color: #5e5665;
+        }
+
+        html[data-theme="light"] .about-card,
+        html[data-theme="light"] .education-item,
+        html[data-theme="light"] .documentation-slide,
+        html[data-theme="light"] .contact-card {
+            border-color: rgba(66, 45, 80, 0.12);
+            background: rgba(255, 255, 255, 0.82);
+            box-shadow: 0 14px 34px rgba(52, 34, 65, 0.07);
+        }
+
+        html[data-theme="light"] .about-card,
+        html[data-theme="light"] .about-card strong,
+        html[data-theme="light"] .mission-heading h3,
+        html[data-theme="light"] .mission-prompt {
+            color: #352d3d;
+        }
+
+        html[data-theme="light"] .photo-container img {
+            border-color: #f6f2f8;
+        }
+
+        html[data-theme="light"] .btn-outline {
+            color: #7139a2;
+        }
+
+        html[data-theme="light"] .mission-status,
+        html[data-theme="light"] #member-search-status {
+            color: #665d6e;
+        }
+
+        html[data-theme="light"] .member-search label {
+            color: #352d3d;
+        }
+
+        html[data-theme="light"] .member-search-control {
+            border-color: rgba(66, 45, 80, 0.18);
+            background: rgba(255, 255, 255, 0.92);
+        }
+
+        html[data-theme="light"] .member-search-control:focus-within {
+            border-color: #7139a2;
+            background: #fff;
+            box-shadow: 0 0 0 4px rgba(113, 57, 162, 0.12);
+        }
+
+        html[data-theme="light"] #member-search {
+            color-scheme: light;
+            color: #302a38;
+        }
+
+        html[data-theme="light"] #member-search::placeholder {
+            color: #756b7d;
+        }
+
+        html[data-theme="light"] .member-item {
+            border-color: rgba(66, 45, 80, 0.12);
+            background: rgba(255, 255, 255, 0.74);
+            color: #3e3547;
+        }
+
+        html[data-theme="light"] .mission-box {
+            border-color: rgba(113, 57, 162, 0.22);
+            background: linear-gradient(135deg, rgba(220, 196, 240, 0.52), rgba(255, 255, 255, 0.8));
+        }
+
+        html[data-theme="light"] .music-player {
+            border-color: rgba(66,45,80,0.16);
+            background: linear-gradient(110deg, rgba(255,255,255,0.94), rgba(246,242,248,0.88));
+            box-shadow: 0 14px 34px rgba(52,34,65,0.08);
+        }
+
+        html[data-theme="light"] .music-player-art {
+            border-color: rgba(66,45,80,0.16);
+            background: linear-gradient(145deg, #fff, #eee8f2);
+        }
+
+        html[data-theme="light"] .music-player-bar {
+            background: #7139a2;
+        }
+
+        html[data-theme="light"] .music-player-details small,
+        html[data-theme="light"] .music-player-timeline {
+            color: #665d6e;
+        }
+
+        html[data-theme="light"] .music-player-details h3 {
+            color: #352d3d;
+        }
+
+        html[data-theme="light"] .music-player-details p {
+            color: #665d6e;
+        }
+
+        html[data-theme="light"] .music-player-toggle {
+            background: #30243a;
+            color: #fff;
+        }
+
+        html[data-theme="light"] .music-player-toggle:focus-visible {
+            outline-color: rgba(113,57,162,0.6);
+        }
+
+        html[data-theme="light"] .music-player-timeline input {
+            color-scheme: light;
+            accent-color: #7139a2;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .music-player.is-playing .music-player-bar {
+                animation: none;
+                transform: scaleY(0.7);
+            }
+        }
+
+        html[data-theme="light"] .mission-timer {
+            color: #7139a2;
+        }
+
+        html[data-theme="light"] .mission-track {
+            background: rgba(73, 49, 88, 0.14);
+        }
+
+        html[data-theme="light"] .member-embed iframe {
+            border-color: rgba(66, 45, 80, 0.14);
+            background: #f6f2f8;
+        }
+
+        html[data-theme="light"] .theme-toggle {
+            border-color: rgba(66, 45, 80, 0.18);
+            background: #f2ebf7;
+            color: #3d2d4b;
+        }
+
+        html[data-theme="light"] .theme-toggle-icon {
+            color: #7139a2;
+        }
+
+        html[data-theme="light"] .hero-kicker-mark {
+            background: #7139a2;
+        }
+
+        html[data-theme="light"] .hero-image::before {
+            border-color: rgba(113, 57, 162, 0.38);
+        }
+
+        html[data-theme="light"] .hero-image-index {
+            background: #526b21;
+            color: #fff;
+        }
+
+        html[data-theme="light"] .hero-image-side-note {
+            color: #665d6e;
+        }
+
+        html[data-theme="light"] footer {
+            border-top-color: rgba(66, 45, 80, 0.12);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .theme-toggle {
+                transition: none;
+            }
+        }

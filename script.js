@@ -209,6 +209,70 @@ if (memberSearch && memberSearchStatus) {
     });
 }
 
+const musicPlayer = document.querySelector("#music-player");
+const groupAudio = document.querySelector("#group-audio");
+const musicToggle = document.querySelector("#music-player-toggle");
+const musicSeek = document.querySelector("#music-player-seek");
+const musicCurrent = document.querySelector("#music-player-current");
+const musicDuration = document.querySelector("#music-player-duration");
+const musicStatus = document.querySelector("#music-player-status");
+
+if (musicPlayer && groupAudio && musicToggle && musicSeek && musicCurrent && musicDuration && musicStatus) {
+    function formatAudioTime(seconds) {
+        const minutes = Math.floor(seconds / 60);
+        const remainder = Math.floor(seconds % 60).toString().padStart(2, "0");
+        return `${minutes}:${remainder}`;
+    }
+
+    function updateAudioTimeline() {
+        const duration = Number.isFinite(groupAudio.duration) ? groupAudio.duration : 0;
+        const progress = duration > 0 ? (groupAudio.currentTime / duration) * 100 : 0;
+        musicCurrent.textContent = formatAudioTime(groupAudio.currentTime);
+        musicDuration.textContent = duration > 0 ? formatAudioTime(duration) : "--:--";
+        musicSeek.max = String(duration);
+        musicSeek.value = String(groupAudio.currentTime);
+        musicSeek.style.setProperty("--seek-progress", `${progress}%`);
+        musicSeek.disabled = duration <= 0;
+    }
+
+    musicToggle.addEventListener("click", () => {
+        if (groupAudio.paused) {
+            groupAudio.play().catch(() => {
+                musicStatus.textContent = "Lagu tidak dapat diputar.";
+            });
+        } else {
+            groupAudio.pause();
+        }
+    });
+
+    musicSeek.addEventListener("input", () => {
+        groupAudio.currentTime = Number(musicSeek.value);
+        updateAudioTimeline();
+    });
+
+    groupAudio.addEventListener("loadedmetadata", updateAudioTimeline);
+    groupAudio.addEventListener("timeupdate", updateAudioTimeline);
+    groupAudio.addEventListener("durationchange", updateAudioTimeline);
+    groupAudio.addEventListener("play", () => {
+        musicPlayer.classList.add("is-playing");
+        musicToggle.setAttribute("aria-label", "Jeda TANTEE");
+        musicToggle.setAttribute("aria-pressed", "true");
+        musicStatus.textContent = "Sedang diputar";
+    });
+    groupAudio.addEventListener("pause", () => {
+        musicPlayer.classList.remove("is-playing");
+        musicToggle.setAttribute("aria-label", "Putar TANTEE");
+        musicToggle.setAttribute("aria-pressed", "false");
+        musicStatus.textContent = "Dijeda";
+    });
+    groupAudio.addEventListener("ended", () => {
+        musicStatus.textContent = "Selesai diputar";
+    });
+    groupAudio.addEventListener("error", () => {
+        musicStatus.textContent = "File lagu tidak dapat dimuat.";
+    });
+}
+
 const memberImages = document.querySelectorAll(".kiri");
 
 if ("IntersectionObserver" in window) {
