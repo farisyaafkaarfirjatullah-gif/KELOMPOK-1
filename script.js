@@ -97,6 +97,30 @@ document.querySelectorAll(".meeting-photo").forEach((photo) => {
     }
 });
 
+const heroImage = document.querySelector("#hero-image");
+const heroImageIndex = document.querySelector(".hero-image-index");
+const heroImages = [
+    "kelompok 1.jpeg",
+    "foto/heroimage2.jpeg",
+    "foto/heroimage3.jpeg",
+    "foto/heroimage4.jpeg"
+];
+
+if (heroImage && heroImageIndex) {
+    let heroImageCurrent = 0;
+
+    function showHeroImage(index) {
+        heroImageCurrent = (index + heroImages.length) % heroImages.length;
+        heroImage.src = heroImages[heroImageCurrent];
+        heroImage.alt = `Foto Kelompok 1 ${heroImageCurrent + 1}`;
+        heroImageIndex.textContent = String(heroImageCurrent + 1).padStart(2, "0");
+    }
+
+    setInterval(() => {
+        showHeroImage(heroImageCurrent + 1);
+    }, 3000);
+}
+
 const instagramProfiles = [
     { name: "Syifa Faujiyah Noor Fajrin", role: "Mentor", username: "syifflow" },
     { name: "Silfa Fauzani Budiman", role: "Mentor", username: "Silfafb_" },
@@ -248,6 +272,8 @@ if (
     }
 
     function playCurrentTrack() {
+        groupAudio.volume = 1;
+        groupAudio.muted = false;
         groupAudio.play().catch(() => {
             musicStatus.textContent = "Lagu tidak dapat diputar.";
         });
@@ -352,8 +378,13 @@ if (documentationSlider) {
         activeDocumentationIndex = (index + documentationSlides.length) % documentationSlides.length;
         documentationSlides.forEach((slide, slideIndex) => {
             const isActive = slideIndex === activeDocumentationIndex;
+            slide.classList.remove("is-active");
             slide.hidden = !isActive;
             slide.setAttribute("aria-hidden", String(!isActive));
+
+            if (isActive) {
+                requestAnimationFrame(() => slide.classList.add("is-active"));
+            }
         });
 
         documentationDots.forEach((dot, dotIndex) => {

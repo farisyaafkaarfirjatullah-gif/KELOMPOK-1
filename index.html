@@ -118,6 +118,7 @@
                 <span class="hero-image-index" aria-hidden="true">01</span>
                 <figure class="photo-container">
                     <img
+                        id="hero-image"
                         src="kelompok 1.jpeg"
                         alt="Anggota Kelompok 1 berfoto bersama"
                     >
@@ -164,12 +165,13 @@
                 <span id="music-player-duration">--:--</span>
             </div>
             <label class="music-player-playlist-label" for="music-player-playlist">Pilih lagu</label>
-            <select class="music-player-playlist" id="music-player-playlist" aria-label="Playlist lagu"> 
-                <option value="Hindia_-_everything_u_are_(mp3.pm).mp3">Everything U Are — Hindia</option>
-                <option value="lagu/DJ%20TREND%20TANTE%20HOLIC%20VIRAL%20TIKTOK%20TERBARU%202026.mp3">DJ Trend Tante Holic</option>
-                <option value="lagu/Hymne%20teknik.mp3">Hymne Teknik</option>
+            <select class="music-player-playlist" id="music-player-playlist" aria-label="Playlist lagu">
+                <option value="lagu/tante.mp3">DJ Trend Tante Holic</option>
+                <option value="lagu/hymne teknik.mp3">Hymne Teknik</option>
+                <option value="lagu/eur.mp3">Everything U Are — Hindia</option>
             </select>
-            
+            <audio id="group-audio" preload="auto" volume="1"></audio>
+
         </div>
 
         <div class="section-title">
@@ -187,8 +189,34 @@
 <!-- nama kelompok -->
             <div class="about-card">
 
+                <div class="mentor-section">
+                    <p>
+                        <strong>KAKAK ASUH KELOMPOK:</strong>
+                    </p>
+                    <div class="mentor-grid">
+                        <article class="mentor-card">
+                            <div class="mentor-photo-frame">
+                                <img src="foto/teh syifa.jpeg" alt="Foto Syifa Faujiyah Noor Fajrin">
+                            </div>
+                            <div class="mentor-info">
+                                <h3>Syifa Faujiyah Noor Fajrin</h3>
+                                <p><strong>NPM:</strong> 257006111063</p>
+                            </div>
+                        </article>
+                        <article class="mentor-card">
+                            <div class="mentor-photo-frame">
+                                <img src="foto/teh silfa.jpeg" alt="Foto Silfa Fauzani Budiman">
+                            </div>
+                            <div class="mentor-info">
+                                <h3>Silfa Fauzani Budiman</h3>
+                                <p><strong>NPM:</strong> 257006111036</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
                 <p>
-                    <strong>NAMA ANGGOTA KELOMPOK:</strong>
+                    <strong>NAMA ANAK ASUH KELOMPOK:</strong>
                 </p>
 
                 <div class="member-search">
@@ -407,7 +435,7 @@
             <div class="documentation-slides">
                 <article class="documentation-slide" data-slide aria-hidden="false">
                     <div class="documentation-photo-frame">
-                        <img class="meeting-photo" src="FOTO_PERTEMUAN_01.jpg" alt="Kegiatan Kelompok 1 pada Pertemuan 01">
+                        <img class="meeting-photo" src="foto/pertemuan 1.jpeg" alt="Kegiatan Kelompok 1 pada Pertemuan 01">
                         <div class="photo-placeholder" aria-hidden="true">
                             <span class="placeholder-kicker">PERTEMUAN / 01</span>
                             <div class="placeholder-message">
@@ -420,13 +448,13 @@
                     <div class="meeting-details">
                         <small>DOKUMENTASI / 01</small>
                         <h3>Pertemuan 01</h3>
-                        <p>Foto kegiatan pertemuan pertama akan ditampilkan di sini.</p>
+                        <p>Pada pertemuan pertama kita mengulas kembali resume dan membahas terkait penugasan untuk pertemuan selanjutnya.</p>
                     </div>
                 </article>
 
                 <article class="documentation-slide" data-slide aria-hidden="true" hidden>
                     <div class="documentation-photo-frame">
-                        <img class="meeting-photo" src="FOTO_PERTEMUAN_02.jpg" alt="Kegiatan Kelompok 1 pada Pertemuan 02">
+                        <img class="meeting-photo" src="foto/pertemuan 2.jpeg" alt="Kegiatan Kelompok 1 pada Pertemuan 02">
                         <div class="photo-placeholder" aria-hidden="true">
                             <span class="placeholder-kicker">PERTEMUAN / 02</span>
                             <div class="placeholder-message">
@@ -439,16 +467,35 @@
                     <div class="meeting-details">
                         <small>DOKUMENTASI / 02</small>
                         <h3>Pertemuan 02</h3>
-                        <p>Foto kegiatan pertemuan kedua akan ditampilkan di sini.</p>
+                        <p>Pada Pertemuan kedua kita mengulas materi lagi, membahas tugas pembuatan website.</p>
+                    </div>
+                </article>
+                <article class="documentation-slide" data-slide aria-hidden="true" hidden>
+                    <div class="documentation-photo-frame">
+                        <img class="meeting-photo" src="foto/pertemuan 3.jpeg" alt="Kegiatan Kelompok 1 pada Pertemuan 03">
+                        <div class="photo-placeholder" aria-hidden="true">
+                            <span class="placeholder-kicker">PERTEMUAN / 03</span>
+                            <div class="placeholder-message">
+                                <span>ARSIP KELOMPOK 1</span>
+                                <strong>Foto belum<br>ditambahkan</strong>
+                            </div>
+                            <span class="placeholder-note">GANTI NAMA FILE FOTO DI ATRIBUT SRC</span>
+                        </div>
+                    </div>
+                    <div class="meeting-details">
+                        <small>DOKUMENTASI / 03</small>
+                        <h3>Pertemuan 03</h3>
+                        <p>Pada pertemuan ketiga kita melanjutkan pembahasan tugas baru dan website.</p>
                     </div>
                 </article>
             </div>
 
             <div class="documentation-controls">
-                <span class="documentation-counter" aria-live="polite"><span id="documentation-current">01</span> <span id="documentation-total">/ 02</span></span>
+                <span class="documentation-counter" aria-live="polite"><span id="documentation-current">01</span> <span id="documentation-total">/ 03</span></span>
                 <div class="documentation-dots" aria-label="Pilih pertemuan">
                     <button class="documentation-dot is-active" type="button" data-slide-index="0" aria-label="Tampilkan Pertemuan 01" aria-current="true"></button>
                     <button class="documentation-dot" type="button" data-slide-index="1" aria-label="Tampilkan Pertemuan 02" aria-current="false"></button>
+                    <button class="documentation-dot" type="button" data-slide-index="2" aria-label="Tampilkan Pertemuan 03" aria-current="false"></button>
                 </div>
                 <div class="documentation-arrows">
                     <button class="documentation-arrow" id="documentation-previous" type="button" aria-label="Pertemuan sebelumnya" title="Pertemuan sebelumnya">←</button>
