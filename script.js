@@ -216,12 +216,24 @@ const musicSeek = document.querySelector("#music-player-seek");
 const musicCurrent = document.querySelector("#music-player-current");
 const musicDuration = document.querySelector("#music-player-duration");
 const musicStatus = document.querySelector("#music-player-status");
+const musicTitle = document.querySelector("#music-player-title");
+const musicPlaylist = document.querySelector("#music-player-playlist");
+const musicPrevious = document.querySelector("#music-player-previous");
+const musicNext = document.querySelector("#music-player-next");
 
-if (musicPlayer && groupAudio && musicToggle && musicSeek && musicCurrent && musicDuration && musicStatus) {
+if (
+    musicPlayer && groupAudio && musicToggle && musicSeek && musicCurrent &&
+    musicDuration && musicStatus && musicTitle && musicPlaylist &&
+    musicPrevious && musicNext
+) {
     function formatAudioTime(seconds) {
         const minutes = Math.floor(seconds / 60);
         const remainder = Math.floor(seconds % 60).toString().padStart(2, "0");
         return `${minutes}:${remainder}`;
+    }
+
+    function getCurrentTrackName() {
+        return musicPlaylist.selectedOptions[0].textContent.trim();
     }
 
     function updateAudioTimeline() {
@@ -235,14 +247,45 @@ if (musicPlayer && groupAudio && musicToggle && musicSeek && musicCurrent && mus
         musicSeek.disabled = duration <= 0;
     }
 
+    function playCurrentTrack() {
+        groupAudio.play().catch(() => {
+            musicStatus.textContent = "Lagu tidak dapat diputar.";
+        });
+    }
+
+    function selectTrack(index, shouldPlay) {
+        const trackCount = musicPlaylist.options.length;
+        const nextIndex = (index + trackCount) % trackCount;
+        musicPlaylist.selectedIndex = nextIndex;
+        musicTitle.textContent = getCurrentTrackName();
+        groupAudio.src = musicPlaylist.value;
+        groupAudio.load();
+        updateAudioTimeline();
+        musicStatus.textContent = shouldPlay ? "Memuat lagu..." : "Siap diputar";
+
+        if (shouldPlay) {
+            playCurrentTrack();
+        }
+    }
+
     musicToggle.addEventListener("click", () => {
         if (groupAudio.paused) {
-            groupAudio.play().catch(() => {
-                musicStatus.textContent = "Lagu tidak dapat diputar.";
-            });
+            playCurrentTrack();
         } else {
             groupAudio.pause();
         }
+    });
+
+    musicPlaylist.addEventListener("change", () => {
+        selectTrack(musicPlaylist.selectedIndex, !groupAudio.paused);
+    });
+
+    musicPrevious.addEventListener("click", () => {
+        selectTrack(musicPlaylist.selectedIndex - 1, !groupAudio.paused);
+    });
+
+    musicNext.addEventListener("click", () => {
+        selectTrack(musicPlaylist.selectedIndex + 1, !groupAudio.paused);
     });
 
     musicSeek.addEventListener("input", () => {
@@ -255,18 +298,20 @@ if (musicPlayer && groupAudio && musicToggle && musicSeek && musicCurrent && mus
     groupAudio.addEventListener("durationchange", updateAudioTimeline);
     groupAudio.addEventListener("play", () => {
         musicPlayer.classList.add("is-playing");
-        musicToggle.setAttribute("aria-label", "Jeda TANTEE");
+        musicToggle.setAttribute("aria-label", `Jeda ${getCurrentTrackName()}`);
         musicToggle.setAttribute("aria-pressed", "true");
         musicStatus.textContent = "Sedang diputar";
     });
     groupAudio.addEventListener("pause", () => {
         musicPlayer.classList.remove("is-playing");
-        musicToggle.setAttribute("aria-label", "Putar TANTEE");
+        musicToggle.setAttribute("aria-label", `Putar ${getCurrentTrackName()}`);
         musicToggle.setAttribute("aria-pressed", "false");
-        musicStatus.textContent = "Dijeda";
+        if (!groupAudio.ended) {
+            musicStatus.textContent = "Dijeda";
+        }
     });
     groupAudio.addEventListener("ended", () => {
-        musicStatus.textContent = "Selesai diputar";
+        selectTrack(musicPlaylist.selectedIndex + 1, true);
     });
     groupAudio.addEventListener("error", () => {
         musicStatus.textContent = "File lagu tidak dapat dimuat.";

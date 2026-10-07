@@ -134,39 +134,43 @@
 
     </section>
 
-    <div class="music-player" id="music-player" aria-labelledby="music-player-title">
-        <div class="music-player-art" aria-hidden="true">
-            <span class="music-player-bar"></span>
-            <span class="music-player-bar"></span>
-            <span class="music-player-bar"></span>
-        </div>
-        <div class="music-player-details">
-            <small>NOW PLAYING</small>
-            <h3 id="music-player-title">TANTEE</h3>
-            <p id="music-player-status" aria-live="polite">Lagu dari koleksi Kelompok 1</p>
-        </div>
-        <button class="music-player-toggle" id="music-player-toggle" type="button" aria-label="Putar TANTEE" aria-pressed="false">
-            <span aria-hidden="true"></span>
-        </button>
-        <div class="music-player-timeline">
-            <span id="music-player-current">0:00</span>
-            <input id="music-player-seek" type="range" min="0" max="0" step="0.1" value="0" aria-label="Posisi lagu" disabled>
-            <span id="music-player-duration">--:--</span>
-        </div>
-        <audio id="group-audio" preload="metadata">
-            <source src="TANTEEE.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-
-
     <!-- =========================
          ABOUT
     ========================== -->
 
     <section id="about">
 
-
+        <div class="music-player" id="music-player" aria-labelledby="music-player-title">
+            <div class="music-player-art" aria-hidden="true">
+                <span class="music-player-bar"></span>
+                <span class="music-player-bar"></span>
+                <span class="music-player-bar"></span>
+            </div>
+            <div class="music-player-details">
+                <small>NOW PLAYING</small>
+                <h3 id="music-player-title">TANTEE</h3>
+                <p id="music-player-status" aria-live="polite">Lagu dari koleksi Kelompok 1</p>
+            </div>
+            <div class="music-player-controls">
+                <button class="music-player-skip" id="music-player-previous" type="button" aria-label="Lagu sebelumnya">‹</button>
+                <button class="music-player-toggle" id="music-player-toggle" type="button" aria-label="Putar TANTEE" aria-pressed="false">
+                    <span aria-hidden="true"></span>
+                </button>
+                <button class="music-player-skip" id="music-player-next" type="button" aria-label="Lagu berikutnya">›</button>
+            </div>
+            <div class="music-player-timeline">
+                <span id="music-player-current">0:00</span>
+                <input id="music-player-seek" type="range" min="0" max="0" step="0.1" value="0" aria-label="Posisi lagu" disabled>
+                <span id="music-player-duration">--:--</span>
+            </div>
+            <label class="music-player-playlist-label" for="music-player-playlist">Pilih lagu</label>
+            <select class="music-player-playlist" id="music-player-playlist" aria-label="Playlist lagu"> 
+                <option value="Hindia_-_everything_u_are_(mp3.pm).mp3">Everything U Are — Hindia</option>
+                <option value="lagu/DJ%20TREND%20TANTE%20HOLIC%20VIRAL%20TIKTOK%20TERBARU%202026.mp3">DJ Trend Tante Holic</option>
+                <option value="lagu/Hymne%20teknik.mp3">Hymne Teknik</option>
+            </select>
+            
+        </div>
 
         <div class="section-title">
 
