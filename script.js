@@ -103,7 +103,8 @@ const heroImages = [
     "kelompok 1.jpeg",
     "foto/heroimage2.jpeg",
     "foto/heroimage3.jpeg",
-    "foto/heroimage4.jpeg"
+    "foto/heroimage4.jpeg",
+    "foto/heroimage5.jpeg",
 ];
 
 if (heroImage && heroImageIndex) {
@@ -426,6 +427,39 @@ if (documentationSlider) {
             showDocumentationSlide(Number(dot.dataset.slideIndex));
         });
     });
+
+    const photoGalleries = Array.from(documentationSlider.querySelectorAll(".documentation-photo-gallery"), (gallery) => {
+        const photoSlides = Array.from(gallery.querySelectorAll("[data-photo-slide]"));
+        let activePhotoIndex = 0;
+
+        function showMeetingPhoto(index) {
+            if (photoSlides.length === 0) {
+                return;
+            }
+
+            activePhotoIndex = (index + photoSlides.length) % photoSlides.length;
+            photoSlides.forEach((photoSlide, photoIndex) => {
+                const isActive = photoIndex === activePhotoIndex;
+                photoSlide.hidden = !isActive;
+                photoSlide.setAttribute("aria-hidden", String(!isActive));
+                photoSlide.classList.remove("is-photo-active");
+
+                if (isActive) {
+                    requestAnimationFrame(() => photoSlide.classList.add("is-photo-active"));
+                }
+            });
+        }
+
+        showMeetingPhoto(activePhotoIndex);
+
+        return {
+            advance: () => showMeetingPhoto(activePhotoIndex + 1),
+        };
+    });
+
+    window.setInterval(() => {
+        photoGalleries[activeDocumentationIndex]?.advance();
+    }, 2000);
 
     documentationSlider.addEventListener("keydown", (event) => {
         if (event.target.closest("button")) {
