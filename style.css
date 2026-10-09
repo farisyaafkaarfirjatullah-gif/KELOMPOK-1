@@ -621,6 +621,57 @@ section {
   font-size: 11px;
 }
 
+.music-player-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.music-player-collapse {
+  display: grid;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.music-player-collapse:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.music-player-collapse:focus-visible {
+  outline: 2px solid #c084fc;
+  outline-offset: 2px;
+}
+
+.music-player.is-minimized {
+  grid-template-columns: 34px minmax(0, 1fr) 36px;
+  width: min(100% - 32px, 260px);
+}
+
+.music-player.is-minimized .music-player-art,
+.music-player.is-minimized .music-player-controls {
+  grid-row: auto;
+}
+
+.music-player.is-minimized .music-player-details p,
+.music-player.is-minimized .music-player-skip,
+.music-player.is-minimized .music-player-timeline,
+.music-player.is-minimized .music-player-playlist-label,
+.music-player.is-minimized .music-player-playlist {
+  display: none;
+}
+
 /* =========================
            ABOUT
         ========================= */

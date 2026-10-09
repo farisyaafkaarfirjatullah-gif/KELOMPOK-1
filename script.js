@@ -244,11 +244,12 @@ const musicTitle = document.querySelector("#music-player-title");
 const musicPlaylist = document.querySelector("#music-player-playlist");
 const musicPrevious = document.querySelector("#music-player-previous");
 const musicNext = document.querySelector("#music-player-next");
+const musicCollapse = document.querySelector("#music-player-collapse");
 
 if (
     musicPlayer && groupAudio && musicToggle && musicSeek && musicCurrent &&
     musicDuration && musicStatus && musicTitle && musicPlaylist &&
-    musicPrevious && musicNext
+    musicPrevious && musicNext && musicCollapse
 ) {
     function formatAudioTime(seconds) {
         const minutes = Math.floor(seconds / 60);
@@ -293,6 +294,18 @@ if (
             playCurrentTrack();
         }
     }
+
+    musicCollapse.addEventListener("click", () => {
+        const isExpanded = musicCollapse.getAttribute("aria-expanded") === "true";
+        musicPlayer.classList.toggle("is-minimized", isExpanded);
+        musicCollapse.setAttribute("aria-expanded", String(!isExpanded));
+        musicCollapse.setAttribute(
+            "aria-label",
+            isExpanded ? "Perbesar pemutar lagu" : "Minimalkan pemutar lagu"
+        );
+        musicCollapse.title = isExpanded ? "Perbesar pemutar lagu" : "Minimalkan pemutar lagu";
+        musicCollapse.textContent = isExpanded ? "+" : "−";
+    });
 
     musicToggle.addEventListener("click", () => {
         if (groupAudio.paused) {
